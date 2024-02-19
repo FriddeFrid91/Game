@@ -73,6 +73,8 @@ def main():
 
             if choice == "exit" or choice == "Exit":
                 break
+            if choice == "score" or choice == "exit":
+                print("score")
 
 
 if __name__ == "__main__":
