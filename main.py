@@ -1,7 +1,8 @@
-def main():
+import random
+import Dice
 
-    import random
-  
+
+def main():
     print("Hello! Welcome to a game of Pig!")
     print("")
     print("           9")
@@ -16,67 +17,45 @@ def main():
     print("")
    
     while True:
+        print(">> PLAY <<")
+        print(">> HIGHSCORE <<")
+        print(">> EXIT <<")
         
-        choice = input("Play -- Scores -- Exit\n")
+        choice = input("Enter Your Choice: ")
 
         if choice == "play" or choice == "Play":
-            print("Throw the dice!")
-            dice = random.randint(1, 6)
-            print(f"You got a {dice}!")
+            while True:
+                playerThrowingDice = int(input("Enter 0 to throw the dice: "))
+                print("   m___")
+                print("@=" + '""' + "~~" + '")' + ")")
+                print("   " + "W  W") 
 
-        elif dice == 1:
-            print("_____________")
-            print("|           |")
-            print("|           |")
-            print("|     O     |")
-            print("|           |")
-            print("|___________|")
-        
-        elif dice == 2:
-            print("_____________")
-            print("|           |")
-            print("|        O  |")
-            print("|           |")
-            print("|  O        |")
-            print("|___________|")
+                if playerThrowingDice == 0:
+                    resultOfDice = random.randint(1, 6)
+                    thrownDice = Dice.Dice(resultOfDice)
+                    print(thrownDice.throwDice(resultOfDice))
 
-        elif dice == 3:
-            print("_____________")
-            print("|           |")
-            print("|        O  |")
-            print("|     O     |")
-            print("|  O        |")
-            print("|___________|")
-        elif dice == 4:
-            print("_____________")
-            print("|           |")
-            print("|  O     O  |")
-            print("|           |")
-            print("|  O     O  |")
-            print("|___________|")
+                    diceHand = resultOfDice + resultOfDice
 
-        elif dice == 5:
-            print("_____________")
-            print("|           |")
-            print("|  O     O  |")
-            print("|     O     |")
-            print("|  O     O  |")
-            print("|___________|")
-
-        elif dice == 6:
-            print("_____________")
-            print("|           |")
-            print("|  O     O  |")
-            print("|  O     O  |")
-            print("|  O     O  |")
-            print("|___________|")
-
-            if choice == "exit" or choice == "Exit":
-                break
-            if choice == "score" or choice == "exit":
-                print("score")
+                    tryAgain = input("Do you want to throw again? Enter yes or no: ")
+                    if tryAgain.lower() == "yes":
+                        print("Good luck!")
+                    elif tryAgain.lower() == "no":
+                        if diceHand > 0:
+                            print(f"Congratulations! You got {diceHand} points from this round")
+                        else: 
+                            print("You got no points from this round, better luck next time!")
+                        break
+                    else: 
+                        print("Not a valid option.")
+                else:
+                    print("Not a valid option")
+        else:
+            print("Not a valid option.")
 
 
 if __name__ == "__main__":
     main()
+
+
 
