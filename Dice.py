@@ -5,7 +5,7 @@ class Dice:
 
     def throwDice(self, resultOfDice):
         if resultOfDice == 1:
-            return ("Sorry! You got a 1.")
+            return ("Oh no, you got a 1. You get 0 points from this round.")
         if resultOfDice == 2:
             return ("You got a 2!")
         if resultOfDice == 3:

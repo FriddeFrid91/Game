@@ -1,5 +1,6 @@
 import random
 import Dice
+import Player
 
 
 def main():
@@ -20,29 +21,37 @@ def main():
         print(">> PLAY <<")
         print(">> HIGHSCORE <<")
         print(">> EXIT <<")
+        print("   m___")
+        print("@=" + '""' + "~~" + '")' + ")")
+        print("   " + "W  W") 
         
         choice = input("Enter Your Choice: ")
 
         if choice == "play" or choice == "Play":
             while True:
-                playerThrowingDice = int(input("Enter 0 to throw the dice: "))
-                print("   m___")
-                print("@=" + '""' + "~~" + '")' + ")")
-                print("   " + "W  W") 
+                # playersName = input("Enter your name: ")
+                # creatingPlayer = Player.Player(playersName)
+                # print(creatingPlayer)
 
+                resultOfDice = 0
+
+                while resultOfDice != 1:
+                    playerThrowingDice = int(input("Enter 0 to throw the dice: "))
+                    resultOfDice += resultOfDice
+            
                 if playerThrowingDice == 0:
                     resultOfDice = random.randint(1, 6)
                     thrownDice = Dice.Dice(resultOfDice)
-                    print(thrownDice.throwDice(resultOfDice))
-
-                    diceHand = resultOfDice + resultOfDice
+                    sum = thrownDice.throwDice(resultOfDice)
+                    print(sum)
 
                     tryAgain = input("Do you want to throw again? Enter yes or no: ")
                     if tryAgain.lower() == "yes":
                         print("Good luck!")
+
                     elif tryAgain.lower() == "no":
-                        if diceHand > 0:
-                            print(f"Congratulations! You got {diceHand} points from this round")
+                        if resultOfDice > 0:
+                            print(f"Congratulations! You got {resultOfDice} points from this round")
                         else: 
                             print("You got no points from this round, better luck next time!")
                         break
