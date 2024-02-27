@@ -3,16 +3,25 @@ class Player:
         self.player = player
         self.name = player
         self.score = score
-  
+
+    def nameTaken(name):
+        with open("players.txt", "r") as file:
+            for line in file:
+                if name in line:
+                    return True
+            return False
+
     def creatingPlayer(playersName, score):
-        # filename = "players.txt"
-        with open("players.txt", "a") as file:
-            file.write(f"{playersName}\nScore: {score}\n")
+        if not Player.nameTaken(playersName):  
+            with open("players.txt", "a") as file:
+                file.write(f"{playersName}, {score}\n")
+                return f"You entered: {playersName}"
 
     def showPlayers():
         with open("players.txt", "r") as file:
-            for a in file:
-                return (a)
+            for line in file:
+                print(line.strip())  
 
-    def playersScore():
-        pass
+    def playersScore(self):
+        return self.score
+

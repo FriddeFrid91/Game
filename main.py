@@ -27,9 +27,10 @@ def main():
 
         if choice == "play":
             playersName = input("Enter your name: ")
+
             Player.Player(playersName, 0)
+            Player.Player.nameTaken(playersName)
             Player.Player.creatingPlayer(playersName, 0)
-            print(f"You entered: {playersName}")
 
             while True:
                 enterKey = input("Enter 0 to roll the dice: ")
