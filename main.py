@@ -1,6 +1,5 @@
 import random
-import Dice
-import Player
+import DiceHand
 
 
 def main():
@@ -16,55 +15,45 @@ def main():
     print("      | |---| |  ")
     print("      [_]   [_]")
     print("")
+    listOfPoints = []
    
     while True:
         print(">> PLAY <<")
         print(">> HIGHSCORE <<")
-        print(">> EXIT <<")
-        print("   m___")
-        print("@=" + '""' + "~~" + '")' + ")")
-        print("   " + "W  W") 
-        
-        choice = input("Enter Your Choice: ")
+        print(">> EXIT <<\n")
 
-        if choice == "play" or choice == "Play":
+        choice = input("Enter Your Choice: ").lower()
+
+        if choice == "play":
             while True:
-                # playersName = input("Enter your name: ")
-                # creatingPlayer = Player.Player(playersName)
-                # print(creatingPlayer)
-
-                resultOfDice = 0
-
-                while resultOfDice != 1:
-                    playerThrowingDice = int(input("Enter 0 to throw the dice: "))
-                    resultOfDice += resultOfDice
-            
-                if playerThrowingDice == 0:
-                    resultOfDice = random.randint(1, 6)
-                    thrownDice = Dice.Dice(resultOfDice)
-                    sum = thrownDice.throwDice(resultOfDice)
-                    print(sum)
-
-                    tryAgain = input("Do you want to throw again? Enter yes or no: ")
-                    if tryAgain.lower() == "yes":
-                        print("Good luck!")
-
-                    elif tryAgain.lower() == "no":
-                        if resultOfDice > 0:
-                            print(f"Congratulations! You got {resultOfDice} points from this round")
-                        else: 
-                            print("You got no points from this round, better luck next time!")
+                enterKey = input("Enter 0 to roll the dice: ")
+                if enterKey == "0":
+                    thrownDice = random.randint(1, 6)
+                    print(f"You got a {thrownDice}!")
+                    print("---------------")
+                    if thrownDice > 1:
+                        listOfPoints.append(thrownDice)
+                        tot = DiceHand.DiceHand.countingTheRound(listOfPoints)
+                        print(tot)
+                        continueOrNot = input("Do you want to roll the dice again? Enter yes or no.\n")
+                        if continueOrNot.lower() == "no":
+                            print("End of your turn.")
+                            break
+                        if continueOrNot.lower() == "yes":
+                            print("Good luck!")
+                    else:
+                        print("You got 0 points.")
+                        print("End of your turn.")
                         break
-                    else: 
-                        print("Not a valid option.")
-                else:
-                    print("Not a valid option")
-        else:
-            print("Not a valid option.")
+        elif choice == "exit":
+            print("Goodbye, thanks for playing!")
+            break 
 
 
 if __name__ == "__main__":
     main()
+
+
 
 
 
