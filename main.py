@@ -1,5 +1,6 @@
 import random
 import DiceHand
+import Player
 
 
 def main():
@@ -16,7 +17,7 @@ def main():
     print("      [_]   [_]")
     print("")
     listOfPoints = []
-   
+  
     while True:
         print(">> PLAY <<")
         print(">> HIGHSCORE <<")
@@ -25,6 +26,11 @@ def main():
         choice = input("Enter Your Choice: ").lower()
 
         if choice == "play":
+            playersName = input("Enter your name: ")
+            Player.Player(playersName, 0)
+            Player.Player.creatingPlayer(playersName, 0)
+            print(f"You entered: {playersName}")
+
             while True:
                 enterKey = input("Enter 0 to roll the dice: ")
                 if enterKey == "0":
