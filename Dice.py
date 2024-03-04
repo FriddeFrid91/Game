@@ -7,7 +7,9 @@ class Dice:
 
     def rollTheDice(self):
         return random.randint(1, self.numbers)
-    
-    def showDiceRolls(dice, num_rolls):
-        for _ in range(num_rolls):
-            print(dice.rollTheDice())
+
+    def showDiceRolls(self, rolls, rollTheDice):
+        result = 0
+        for a in range(rolls):
+            result += rollTheDice()
+        return result
