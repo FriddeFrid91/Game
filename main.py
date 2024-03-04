@@ -17,13 +17,21 @@ def main():
     print("************************")
     print("* 1. One-Player        *")
     print("* 2. Two-Player        *")
-    print("* 3. Quit              *")   
-    print("************************")
-         
-    # Skapar en instans av Dice-klassen
-    dice = Dice.Dice(6)
-   
-    dice.showDiceRolls(1)
+    print("* 3. Quit              *")  
+    print("************************\n")
+    option = int(input("Please enter a option:"))
+
+    while True:
+
+        if option == 1:
+            rolltheDice = int(input("Players turn - please enter 0 to roll the"
+                                    + " dice."))
+            if rolltheDice == 0:
+                # Skapar en instans av Dice-klassen
+                dice = Dice.Dice(6)
+                resulOfDice = dice.showDiceRolls(1)
+                print(f" You got a {resulOfDice}! ")
+                input("Do you want to roll a again?")
 
 
 if __name__ == "__main__":
