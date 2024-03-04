@@ -12,3 +12,7 @@ def test_rollTheDice(self):
     result = dice.rollTheDice()
     self.assertGreaterEqual(result, 1)
     self.assertLessEqual(result, 6)
+
+
+if __name__ == "__main__":
+    unittest.main()
