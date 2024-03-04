@@ -12,6 +12,7 @@ class Player:
             return False
 
     def creatingPlayer(playersName, score):
+        playersAndScores = {}
         if not Player.nameTaken(playersName):  
             with open("players.txt", "a") as file:
                 file.write(f"{playersName}, {score}\n")

@@ -19,27 +19,36 @@ def main():
     listOfPoints = []
   
     while True:
-        print(">> PLAY <<")
-        print(">> HIGHSCORE <<")
-        print(">> EXIT <<\n")
+        print("1. PLAYER VS COMPUTER <<")
+        print("2. TWO PLAYER <<")
+        print("3. HIGHSCORE <<")
+        print("4. EXIT <<\n")
 
-        choice = input("Enter Your Choice: ").lower()
+        choice = int(input("Enter Your Choice: "))
 
-        if choice == "play":
-            playersName = input("Enter your name: ")
+        if choice == 2:
+            playersName1 = input("Player 1: Enter your name: ")
 
-            Player.Player(playersName, 0)
-            Player.Player.nameTaken(playersName)
-            Player.Player.creatingPlayer(playersName, 0)
+            Player.Player(playersName1, 0)
+            sum = Player.Player.nameTaken(playersName1)
+            print(sum)
+            Player.Player.creatingPlayer(playersName1, 0)
+
+            playersName2 = input("Player 2: Enter your name: ")
+
+            Player.Player(playersName2, 0)
+            sum1 = Player.Player.nameTaken(playersName2)
+            print(sum1)
+            Player.Player.creatingPlayer(playersName2, 0)
 
             while True:
                 enterKey = input("Enter 0 to roll the dice: ")
                 if enterKey == "0":
-                    thrownDice = random.randint(1, 6)
-                    print(f"You got a {thrownDice}!")
+                    rolledDice = random.randint(1, 6)
+                    print(f"You got a {rolledDice}!")
                     print("---------------")
-                    if thrownDice > 1:
-                        listOfPoints.append(thrownDice)
+                    if rolledDice > 1:
+                        listOfPoints.append(rolledDice)
                         tot = DiceHand.DiceHand.countingTheRound(listOfPoints)
                         print(tot)
                         continueOrNot = input("Do you want to roll the dice again? Enter yes or no.\n")
@@ -59,8 +68,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
