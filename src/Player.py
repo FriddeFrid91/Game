@@ -18,14 +18,14 @@ class Player:
 
         with open("players.txt", "wb") as playersFile:
             pickle.dump(dictOfPlayers, playersFile)
-        return playersName 
-   
+        return playersName
+
     def showPlayer():
         """Player class."""
         with open("players.txt", "rb") as playersFile:
             player = pickle.load(playersFile)
             for line in player:
                 print(line)
-      
+
     def __str__(self):
         return f"{self.name} is a {self.level} player"
