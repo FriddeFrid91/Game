@@ -1,5 +1,7 @@
 def main():
+
     import Dice
+    from Player import Player
     while True:
         print("Hello! Welcome to a game of Pig!")
         print("")
@@ -16,12 +18,17 @@ def main():
         print("************************")
         print("* 1. One-Player        *")
         print("* 2. Two-Player        *")
-        print("* 3. Quit              *")
+        print("* 3. Highscore         *")
+        print("* 4. Rules             *")
+        print("* 5. Quit              *")
         print("************************")
         print("")
         option = int(input("Please enter a option: \n"))
+        playersName = input("Please enter your name: ")
+        Player.createPlayer(playersName)
 
         while True:
+            print(">> Player vs Computer <<\n")
             if option == 1:
                 rolltheDice = int(input("Players turn - please enter 0 to roll"
                                         + " the dice. "))
@@ -41,9 +48,14 @@ def main():
                         break
 
             elif option == 2:
-                pass
-
+                print(">> Player vs player <<\n")
+                
             elif option == 3:
+                print(">> Highscore <<\n")
+                pass
+            elif option == 4:
+                pass
+            elif option == 5:
                 print("Goodbye!")
                 break
 
