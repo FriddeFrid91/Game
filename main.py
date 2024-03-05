@@ -1,6 +1,7 @@
 def main():
 
     import Dice
+    from Rules import Rules
     from DiceHand import DiceHand
     from Player import Player
     while True:
@@ -65,7 +66,16 @@ def main():
                 else:
                     print("Not a valid option.")
             elif option == 4:
-                pass
+                print(">> PIG GAME RULES <<\n")
+                rules = Rules()
+                rules.showRules()
+                print("")
+                rulesOption = int(input("Back to the main menu - "
+                                       + "please enter 0: \n"))
+                if rulesOption == 0:
+                    break
+                else:
+                    print("Not a valid option.")
             elif option == 5:
                 print("Goodbye!")
                 break
