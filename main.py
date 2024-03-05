@@ -1,6 +1,7 @@
 def main():
 
     import Dice
+    from DiceHand import DiceHand
     from Player import Player
     while True:
         print("Hello! Welcome to a game of Pig!")
@@ -23,9 +24,11 @@ def main():
         print("* 5. Quit              *")
         print("************************")
         print("")
-        option = int(input("Please enter a option: \n"))
         playersName = input("Please enter your name: ")
+        print(f"You entered: {playersName}")
         Player.createPlayer(playersName)
+
+        option = int(input("Please enter a option: \n"))
 
         while True:
             print(">> Player vs Computer <<\n")
@@ -37,6 +40,7 @@ def main():
                     dice = Dice.Dice(6)
                     result = dice.showDiceRolls(1, dice.rollTheDice)
                     print(f"You got a {result}!")
+                    DiceHand.countCurrentRound(result)
                     print("")
                     rollAgain = input("Do you want to roll a again? Please "
                                       + "enter yes or no: ")
@@ -52,7 +56,14 @@ def main():
                 
             elif option == 3:
                 print(">> Highscore <<\n")
-                pass
+                Player.showPlayer()
+                print("")
+                highsScoreOption = int(input("Back to the main menu "
+                                             + "- please enter 0: \n"))
+                if highsScoreOption == 0:
+                    break
+                else:
+                    print("Not a valid option.")
             elif option == 4:
                 pass
             elif option == 5:
