@@ -1,43 +1,29 @@
 def main():
-
     import cmd
+<<<<<<< HEAD
     from Intelligence import Intelligence
     from Dice import Dice
     from Rules import Rules
     from DiceHand import DiceHand
+=======
+>>>>>>> FriddeFrid_branch
     from Player import Player
+    from Game import Game
+    from Rules import Rules
+
     listOfPoints = []
-    dictOfPlayers = {}
+
     while True:
         print("Hello! Welcome to a game of Pig!")
-        print("")
-        print("           9")
-        print("     ,--.-'-,--.")
-        print("     \\  /-~-\\  /")
-        print("    / )' a a `( \\")
-        print("   ( (  ,---.  ) )")
-        print("    \\ `(_o_o_)' /")
-        print("     \\   `-'   /")
-        print("      | |---| |  ")
-        print("      [_]   [_]")
-        print("")
-        print("************************")
-        print("* 1. One-Player        *")
-        print("* 2. Two-Player        *")
-        print("* 3. Highscore         *")
-        print("* 4. Rules             *")
-        print("* 5. Quit              *")
-        print("************************")
-        print("")
-        playersName1 = input("Please enter your name (Player 1): ")
-        print(f"You entered: {playersName1}")
-        player1 = Player("Player 1")
-        # player1.createPlayer(playersName1)
-        player1.name = playersName1
-        player1.score = 0
-        dictOfPlayers[player1] = 0
-        print(dictOfPlayers.values())
+        print("*************************")
+        print("* 1. Player vs Computer *")
+        print("* 2. Player vs Player   *")
+        print("* 3. Highscore          *")
+        print("* 4. Rules              *")
+        print("* 5. Quit               *")
+        print("*************************")
 
+<<<<<<< HEAD
         playersName2 = input("Please enter your name (Player 2): ")
         print(f"You entered: {playersName2}")
         player2 = Player("Player 2")
@@ -51,65 +37,51 @@ def main():
 
         while True:
             print(">> Player vs player <<\n")
+=======
+        try:
+            option = int(input("Please enter an option: "))
+            
+>>>>>>> FriddeFrid_branch
             if option == 1:
-                rolltheDice = int(input("Players turn - please enter 0 to roll"
-                                        + " the dice. "))
-                if rolltheDice == 0:
-                    # Skapar en instans av Dice-klassen
-                    dice = Dice(6)  
-                    result = dice.rollTheDice(dice)
-                    if result == 1:
-                        print("Sorry, you got a 1. Your turn is over.")
-                        break
-                    print(f"You got a {result}!")
-                    listOfPoints.append(result)
-                    pointsFromNewRound = DiceHand.countRound(listOfPoints)
-                    print(pointsFromNewRound)
-
-                    print("")
-                    
-                    rollAgain = input("Do you want to roll a again? Please "
-                                      + "enter yes or no: ")
-                    print("")
-                    if rollAgain.lower() == "yes":
-                        print("Good luck!")
-                        continue
-                    elif rollAgain.lower() == "no":
-                        print("Your turn is over.")
-                        break
+                print(">> Player vs Computer <<\n")
+                # Implement one-player mode here
 
             elif option == 2:
+<<<<<<< HEAD
                 print(">> Player vs computer <<\n")
                 Intelligence.intelligence_move()
                 Intelligence.move()
                 rolltheDice = int(input("Players turn - please enter 0 to roll"
                                         + " the dice. "))
                 
+=======
+                print(">> Player vs Player <<\n")
+                playersName1 = input("Please enter your name (Player 1): ")
+                player1 = Player(playersName1)
+                playersName2 = input("Please enter your name (Player 2): ")
+                player2 = Player(playersName2)
+                newGame = Game()
+                newGame.PlayerVsPlayer(player1, player2, listOfPoints)
+>>>>>>> FriddeFrid_branch
                 
             elif option == 3:
                 print(">> Highscore <<\n")
-                Player.showPlayer()
-                print("")
-                highsScoreOption = int(input("Back to the main menu "
-                                             + "- please enter 0: \n"))
-                if highsScoreOption == 0:
-                    break
-                else:
-                    print("Not a valid option.")
+                # Implement highscore display
+
             elif option == 4:
-                print(">> PIG GAME RULES <<\n")
-                rules = Rules("Rules of Pig")
-                rules.showRules()
-                print("")
-                rulesOption = int(input("Back to the main menu - "
-                                       + "please enter 0: \n"))
-                if rulesOption == 0:
-                    break
-                else:
-                    print("Not a valid option.")
+                print(">> Rules <<\n")
+                theRules = Rules("Rules of Pig")
+                theRules.showRules()
+                
             elif option == 5:
                 print("Goodbye!")
-                break
+                break  # Exit the loop and end the program
+
+            else:
+                print("Invalid option. Please try again.")
+
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 
 if __name__ == "__main__":
