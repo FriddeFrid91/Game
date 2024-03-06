@@ -1,9 +1,12 @@
 def main():
 
-    import Dice
+    import cmd
+    from Dice import Dice
     from Rules import Rules
     from DiceHand import DiceHand
     from Player import Player
+    listOfPoints = []
+    dictOfPlayers = {}
     while True:
         print("Hello! Welcome to a game of Pig!")
         print("")
@@ -25,9 +28,23 @@ def main():
         print("* 5. Quit              *")
         print("************************")
         print("")
-        playersName = input("Please enter your name: ")
-        print(f"You entered: {playersName}")
-        Player.createPlayer(playersName)
+        playersName1 = input("Please enter your name (Player 1): ")
+        print(f"You entered: {playersName1}")
+        player1 = Player("Player 1")
+        # player1.createPlayer(playersName1)
+        player1.name = playersName1
+        player1.score = 0
+        dictOfPlayers[player1] = 0
+        print(dictOfPlayers.values())
+
+        playersName2 = input("Please enter your name (Player 2): ")
+        print(f"You entered: {playersName2}")
+        player2 = Player("Player 2")
+        player2.score = 0
+        player2.createPlayer(playersName2)
+        dictOfPlayers[playersName2] = 0
+        dictOfPlayers[player2.name] = player2.score
+        print(dictOfPlayers.values())
 
         option = int(input("Please enter a option: \n"))
 
@@ -38,11 +55,18 @@ def main():
                                         + " the dice. "))
                 if rolltheDice == 0:
                     # Skapar en instans av Dice-klassen
-                    dice = Dice.Dice(6)
-                    result = dice.showDiceRolls(1, dice.rollTheDice)
+                    dice = Dice(6)  
+                    result = dice.rollTheDice(dice)
+                    if result == 1:
+                        print("Sorry, you got a 1. Your turn is over.")
+                        break
                     print(f"You got a {result}!")
-                    DiceHand.countCurrentRound(result)
+                    listOfPoints.append(result)
+                    pointsFromNewRound = DiceHand.countRound(listOfPoints)
+                    print(pointsFromNewRound)
+
                     print("")
+                    
                     rollAgain = input("Do you want to roll a again? Please "
                                       + "enter yes or no: ")
                     print("")
@@ -50,6 +74,7 @@ def main():
                         print("Good luck!")
                         continue
                     elif rollAgain.lower() == "no":
+                        print("Your turn is over.")
                         break
 
             elif option == 2:
@@ -67,7 +92,7 @@ def main():
                     print("Not a valid option.")
             elif option == 4:
                 print(">> PIG GAME RULES <<\n")
-                rules = Rules()
+                rules = Rules("Rules of Pig")
                 rules.showRules()
                 print("")
                 rulesOption = int(input("Back to the main menu - "
