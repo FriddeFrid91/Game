@@ -12,6 +12,7 @@ class Dice:
     def showTheDice(self, result, listOfPoints):
         if result == 1:
             print("Sorry, you got a 1. Your turn is over.")
+            listOfPoints.clear()
             return 0
         else:
             print(f"You got a {result}!")
