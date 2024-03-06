@@ -7,10 +7,22 @@ class Player:
         self.name = name
         self.score = 0
 
-    def __str__(self):
-        return f"Player: {self.name} - Score: {self.score}"
-
     def createPlayer(self, name):
         self.name = name
         self.score = 0 
-        return self.name, self.score
+        return "Player added: " + self.name, self.score
+    
+    def addPoints(self, points):
+        self.score += points
+        return self.score
+    
+    def changeName(self, name):
+        self.name = name
+        return self.name
+    
+    def getName(self):
+        return self.name
+    
+    def setName(self, name):
+        self.name = name
+        return self.name    

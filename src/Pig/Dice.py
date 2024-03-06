@@ -2,15 +2,21 @@ import random
 
 
 class Dice:
+    """Class for the dice."""
     def __init__(self, numbers):
         self.numbers = numbers
 
     def rollTheDice(self, result):
-        if self.numbers == 1:
-            return "Sorry"
-        else:
-            return random.randint(1, self.numbers)
+        return random.randint(1, self.numbers)  
     
+    def showTheDice(self, result, listOfPoints):
+        if result == 1:
+            print("Sorry, you got a 1. Your turn is over.")
+            return 0
+        else:
+            print(f"You got a {result}!")
+            return result
+        
     def getDice(self):
         return self.numbers
     

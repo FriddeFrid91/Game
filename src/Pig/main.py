@@ -28,28 +28,21 @@ def main():
         print("* 5. Quit              *")
         print("************************")
         print("")
+
         playersName1 = input("Please enter your name (Player 1): ")
-        print(f"You entered: {playersName1}")
         player1 = Player("Player 1")
-        # player1.createPlayer(playersName1)
-        player1.name = playersName1
-        player1.score = 0
-        dictOfPlayers[player1] = 0
-        print(dictOfPlayers.values())
+        playerAdded = player1.createPlayer(playersName1)
+        print(playerAdded)
 
         playersName2 = input("Please enter your name (Player 2): ")
-        print(f"You entered: {playersName2}")
         player2 = Player("Player 2")
-        player2.score = 0
-        player2.createPlayer(playersName2)
-        dictOfPlayers[playersName2] = 0
-        dictOfPlayers[player2.name] = player2.score
-        print(dictOfPlayers.values())
+        playerAdded = player2.createPlayer(playersName2)
+        print(playerAdded)
 
         option = int(input("Please enter a option: \n"))
 
         while True:
-            print(">> Player vs Computer <<\n")
+            print(">> Player vs Player <<\n")
             if option == 1:
                 rolltheDice = int(input("Players turn - please enter 0 to roll"
                                         + " the dice. "))
@@ -57,16 +50,19 @@ def main():
                     # Skapar en instans av Dice-klassen
                     dice = Dice(6)  
                     result = dice.rollTheDice(dice)
-                    if result == 1:
-                        print("Sorry, you got a 1. Your turn is over.")
-                        break
-                    print(f"You got a {result}!")
+                    diceOne = dice.showTheDice(result, listOfPoints)
                     listOfPoints.append(result)
                     pointsFromNewRound = DiceHand.countRound(listOfPoints)
-                    print(pointsFromNewRound)
+                    if diceOne == 1:
+                        listOfPoints.clear()
+                        appendPoints = player1.addPoints(0)
+                        break
+                    else:
+                        appendPoints = player1.addPoints(pointsFromNewRound)
+                        print(pointsFromNewRound)
 
                     print("")
-                    
+                 
                     rollAgain = input("Do you want to roll a again? Please "
                                       + "enter yes or no: ")
                     print("")
@@ -78,7 +74,7 @@ def main():
                         break
 
             elif option == 2:
-                print(">> Player vs player <<\n")
+                print(">> Player vs Computer <<\n")
                 
             elif option == 3:
                 print(">> Highscore <<\n")
