@@ -1,9 +1,9 @@
 def main():
 
     import Dice
-    from Rules import Rules
-    from DiceHand import DiceHand
-    from Player import Player
+    import Rules
+    import DiceHand
+    import Player
     while True:
         print("Hello! Welcome to a game of Pig!")
         print("")
