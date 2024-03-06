@@ -1,9 +1,10 @@
 def main():
 
-    import Dice
-    import Rules
-    import DiceHand
-    import Player
+    import cmd
+    from Dice import Dice
+    from Rules import Rules
+    from DiceHand import DiceHand
+    from Player import Player
     while True:
         print("Hello! Welcome to a game of Pig!")
         print("")
@@ -25,9 +26,15 @@ def main():
         print("* 5. Quit              *")
         print("************************")
         print("")
-        playersName = input("Please enter your name: ")
-        print(f"You entered: {playersName}")
-        Player.createPlayer(playersName)
+        playersName1 = input("Please enter your name (Player 1): ")
+        print(f"You entered: {playersName1}")
+        player1 = Player("Player 1")
+        player1.createPlayer(playersName1)
+
+        playersName2 = input("Please enter your name (Player 2): ")
+        print(f"You entered: {playersName2}")
+        player2 = Player("Player 2")
+        player2.createPlayer(playersName2)
 
         option = int(input("Please enter a option: \n"))
 
@@ -38,8 +45,8 @@ def main():
                                         + " the dice. "))
                 if rolltheDice == 0:
                     # Skapar en instans av Dice-klassen
-                    dice = Dice.Dice(6)
-                    result = dice.showDiceRolls(1, dice.rollTheDice)
+                    dice = Dice(6)
+                    result = dice.rollTheDice()
                     print(f"You got a {result}!")
                     DiceHand.countCurrentRound(result)
                     print("")
@@ -67,7 +74,7 @@ def main():
                     print("Not a valid option.")
             elif option == 4:
                 print(">> PIG GAME RULES <<\n")
-                rules = Rules()
+                rules = Rules("Rules of Pig")
                 rules.showRules()
                 print("")
                 rulesOption = int(input("Back to the main menu - "
