@@ -13,9 +13,9 @@ class Game:
 
         print(">> Player vs Player <<\n")
         while True:
-            rolltheDice = input("Player's turn - please enter 0 to roll the dice: ")
+            rolltheDice = input(f"Player 1:s {player1} turn - please enter 0 to roll the dice: ")
             if rolltheDice == "0":
-                dice = Dice(6)  
+                dice = Dice(6) 
                 result = dice.rollTheDice(dice)
                 diceOne = dice.showTheDice(result, listOfPoints)
                 listOfPoints.append(result)
@@ -24,7 +24,7 @@ class Game:
                     listOfPoints.clear()
                     player1.addPoints(0)
                     print("Your turn is over.")
-                    return
+                    break
                 else:
                     player1.addPoints(pointsFromNewRound)
                     print(pointsFromNewRound)
@@ -32,6 +32,4 @@ class Game:
                     print("")
                     if rollAgain.lower() == "no":
                         print("Your turn is over.")
-                        return
-                    print("")
-
+                        break

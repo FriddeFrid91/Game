@@ -16,38 +16,40 @@ def main():
         print("* 5. Quit               *")
         print("*************************")
 
-        option = int(input("Please enter an option: "))
-
-        if option == 1:
-            print(">> Player vs Computer <<\n")
-            # Implement one-player mode here
+        try:
+            option = int(input("Please enter an option: "))
             
-        elif option == 2:
-            print(">> Player vs Player <<\n")
-            playersName1 = input("Please enter your name (Player 1): ")
-            player1 = Player(playersName1)
-            playersName2 = input("Please enter your name (Player 2): ")
-            player2 = Player(playersName2)
-            newGame = Game()
-            newGame.PlayerVsPlayer(player1, player2, listOfPoints)
-            break
+            if option == 1:
+                print(">> Player vs Computer <<\n")
+                # Implement one-player mode here
 
-        elif option == 3:
-            print(">> Highscore <<\n")
+            elif option == 2:
+                print(">> Player vs Player <<\n")
+                playersName1 = input("Please enter your name (Player 1): ")
+                player1 = Player(playersName1)
+                playersName2 = input("Please enter your name (Player 2): ")
+                player2 = Player(playersName2)
+                newGame = Game()
+                newGame.PlayerVsPlayer(player1, player2, listOfPoints)
+                
+            elif option == 3:
+                print(">> Highscore <<\n")
+                # Implement highscore display
 
-            # Implement highscore display
-            
-        elif option == 4:
-            print(">> Rules <<\n")
-            theRules = Rules("Rules of Pig")
-            theRules.showRules()
-            break
-            
-        elif option == 5:
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid option. Please try again.")
+            elif option == 4:
+                print(">> Rules <<\n")
+                theRules = Rules("Rules of Pig")
+                theRules.showRules()
+                
+            elif option == 5:
+                print("Goodbye!")
+                break  # Exit the loop and end the program
+
+            else:
+                print("Invalid option. Please try again.")
+
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 
 if __name__ == "__main__":
