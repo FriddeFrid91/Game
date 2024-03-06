@@ -6,27 +6,20 @@ class Dice:
     def __init__(self, numbers):
         self.numbers = numbers
 
-<<<<<<< HEAD
-    def rollTheDice(self):
-        return random.randint(1, self.numbers)
-
-    def showDiceRolls(self, rolls, rollTheDice):
-        result = 0
-        for _ in range(rolls):
-            result += rollTheDice()
-        return result
-    
-=======
     def rollTheDice(self, result):
         return random.randint(1, self.numbers)  
     
     def showTheDice(self, result, listOfPoints):
         if result == 1:
+            print("--------------------")
             print("Sorry, you got a 1. Your turn is over.")
+            print("--------------------")
             listOfPoints.clear()
             return 0
         else:
+            print("--------------------")
             print(f"You got a {result}!")
+            print("--------------------")
             return result
         
     def getDice(self):
@@ -37,4 +30,3 @@ class Dice:
     
     def __str__(self):
         return f"The dice has {self.numbers} sides."
->>>>>>> FriddeFrid_branch
