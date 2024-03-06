@@ -1,7 +1,15 @@
 def main():
+<<<<<<< HEAD
 
     import cmd  
     from Intelligence import Intelligence
+=======
+    import cmd
+    from Intelligence import Intelligence
+    from Dice import Dice
+    from Rules import Rules
+    from DiceHand import DiceHand
+>>>>>>> 71d83f8ff91b7e87e1a5033719d30a50bb311ba5
     from Player import Player
     from Game import Game
     from Rules import Rules
@@ -20,7 +28,11 @@ def main():
 
         try:
             option = int(input("Please enter an option: "))
+<<<<<<< HEAD
             
+=======
+           
+>>>>>>> 71d83f8ff91b7e87e1a5033719d30a50bb311ba5
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 Intelligence = Intelligence()
@@ -36,19 +48,29 @@ def main():
                 player2 = Player(playersName2)
                 newGame = Game()
                 newGame.PlayerVsPlayer(player1, player2, listOfPoints)
+<<<<<<< HEAD
                 
+=======
+               
+>>>>>>> 71d83f8ff91b7e87e1a5033719d30a50bb311ba5
             elif option == 3:
                 print(">> Highscore <<\n")
                 # Implement highscore display
 
             elif option == 4:
                 print(">> Rules <<\n")
-                theRules = Rules("Rules of Pig")
+                theRules = Rules()
                 theRules.showRules()
-                
+                backToMenu = int(input("Enter 0 to go back to the main menu: "))
+                if backToMenu == 0:
+                    break
+                else:
+                    print("Invalid input. Please enter 0 to go back to the main menu.")
+                            
+      
             elif option == 5:
                 print("Goodbye!")
-                break  # Exit the loop and end the program
+                break
 
             else:
                 print("Invalid option. Please try again.")
