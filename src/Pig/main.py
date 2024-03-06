@@ -54,7 +54,7 @@ def main():
 
             elif option == 2:
                 print(">> Player vs player <<\n")
-                
+
             elif option == 3:
                 print(">> Highscore <<\n")
                 Player.showPlayer()
@@ -71,7 +71,7 @@ def main():
                 rules.showRules()
                 print("")
                 rulesOption = int(input("Back to the main menu - "
-                                       + "please enter 0: \n"))
+                                        + "please enter 0: \n"))
                 if rulesOption == 0:
                     break
                 else:

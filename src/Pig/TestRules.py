@@ -1,6 +1,7 @@
 import unittest
 from Rules import Rules
 
+
 class TestRules(unittest.TestCase):
     def test_showRules(self):
         rules = Rules()

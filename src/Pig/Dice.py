@@ -13,4 +13,3 @@ class Dice:
         for a in range(rolls):
             result += rollTheDice()
         return result
-    
