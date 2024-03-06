@@ -1,10 +1,7 @@
 class Rules:
     def __init__(self, rules):
         self.rules = rules
-        # self.rules = "The game of Pig is a simple two-player dice game in which the first player to reach 100 or more points wins."
-
-    # def showRules(self):
-    # print(self.rules)
+    
     
     def showRules(self):
         print("1. The game is played with a single six-sided die.")
@@ -14,3 +11,9 @@ class Rules:
         print("5. At the end of each turn, the score for that turn is added to the player's total score.")
         print("6. The first player to reach or exceed 100 wins.")
         print("9. If a player rolls a 1, they lose all points for that turn and the other player starts their turn.")
+
+        
+
+
+        
+
