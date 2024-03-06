@@ -5,14 +5,14 @@ class DiceHand:
         self.dice = dice
         self.player = player
         self.points = points
-       
-    def countCurrentRound(self, points):
+      
+    def countRound(listOfPoints):
         totalPoints = 0
-        totalPoints += points
+        for a in listOfPoints:
+            totalPoints += a
         return totalPoints
     """Count current round"""
 
     def __str__(self):
         """Return a string representation of the hand"""
         return f"{self.player} has {self.dice} dice"
-   
