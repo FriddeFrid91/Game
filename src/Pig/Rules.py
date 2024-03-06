@@ -1,8 +1,8 @@
 class Rules:
-    def __init__(self, rules):
-        self.rules = rules
-    
-    
+    def __init__(self):
+        self.rules = "Rules"
+ 
+ 
     def showRules(self):
         print("1. The game is played with a single six-sided die.")
         print("2. The game has two players, who take turns.")
@@ -11,9 +11,3 @@ class Rules:
         print("5. At the end of each turn, the score for that turn is added to the player's total score.")
         print("6. The first player to reach or exceed 100 wins.")
         print("9. If a player rolls a 1, they lose all points for that turn and the other player starts their turn.")
-
-        
-
-
-        
-

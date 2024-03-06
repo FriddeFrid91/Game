@@ -22,7 +22,7 @@ def main():
 
         try:
             option = int(input("Please enter an option: "))
-            
+           
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 # Implement one-player mode here
@@ -35,19 +35,25 @@ def main():
                 player2 = Player(playersName2)
                 newGame = Game()
                 newGame.PlayerVsPlayer(player1, player2, listOfPoints)
-                
+               
             elif option == 3:
                 print(">> Highscore <<\n")
                 # Implement highscore display
 
             elif option == 4:
                 print(">> Rules <<\n")
-                theRules = Rules("Rules of Pig")
+                theRules = Rules()
                 theRules.showRules()
-                
+                backToMenu = int(input("Enter 0 to go back to the main menu: "))
+                if backToMenu == 0:
+                    break
+                else:
+                    print("Invalid input. Please enter 0 to go back to the main menu.")
+                            
+      
             elif option == 5:
                 print("Goodbye!")
-                break 
+                break
 
             else:
                 print("Invalid option. Please try again.")
