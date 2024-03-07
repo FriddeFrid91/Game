@@ -22,8 +22,8 @@ class TestRules(unittest.TestCase):
 
     def test_showRules(self):
         """Test showRules method."""
-        self.rules.showRules()
-        self.assertIsNotNone(self.rules.showRules())
+        self.rules.show_rules()
+        self.assertIsNotNone(self.rules.show_rules())
 
 
 if __name__ == "__main__":
