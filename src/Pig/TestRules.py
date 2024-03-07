@@ -12,7 +12,7 @@ class TestRules(unittest.TestCase):
 
         def setUp(self):
             """Set the TestRules."""
-            self.rules = Rules()
+            self.rules = Rules("Pig game rules.")
 
         def test_rules(self):
             """Test the Rules class."""
