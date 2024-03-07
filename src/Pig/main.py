@@ -23,7 +23,7 @@ def main():
 
         try:
             option = int(input("Please enter an option: "))
-    
+   
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 intelligence = Intelligence()
@@ -40,7 +40,7 @@ def main():
                 player2 = Player(playersName2)
                 newGame = Game()
                 infoReturned = newGame.PlayerVsPlayer(player1, player2)
-            
+          
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")
@@ -61,6 +61,9 @@ def main():
                 print(">> Rules <<\n")
                 theRules = Rules("Rules of Pig")
                 print(theRules.showRules())
+                backToTheMenu = int(input("Enter 0 to go back to the menu: "))
+                if backToTheMenu == 0:
+                    print("Back to the menu.")
 
             elif option == 5:
                 print("Goodbye!")

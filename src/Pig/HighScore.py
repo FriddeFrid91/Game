@@ -4,7 +4,7 @@ import pickle
 
 
 class HighScore:
-    """The HighScore class. Contains the high score logic for the game of Pig."""
+    """The HighScore class. Contains the high score logic."""
 
     def __init__(self):
         """Create the high score."""
@@ -16,23 +16,23 @@ class HighScore:
         player1, player2 = list(highScoreDict.keys())
         score1, score2 = list(highScoreDict.values())
         print(player1, player2, score1, score2)
-        currentWins = 0
-        currentLosses = 0
-
+  
         if score1 > score2:
             winner = player1
             loser = player2
-            currentWins += 1
-            currentLosses += 1
+
         elif score1 < score2:
             winner = player2
             loser = player1
-            currentWins += 1
-            currentLosses += 1
+        win = self.scores.setdefault(winner, {'wins': 0, 'losses': 0})['wins']
+        win += 1
+        loss = self.scores.setdefault(loser, {'wins': 0, 'losses': 0})['losses']
+        loss += 1
 
-        updatedScores = {winner: currentWins, loser: currentLosses}
+        updatedScores = {winner: win, loser: loss}
+        self.scores.update(updatedScores)
         print(updatedScores)
-    
+
         with open("highscore.bin", "ab") as file:
             pickle.dump(self.scores, file)
 
