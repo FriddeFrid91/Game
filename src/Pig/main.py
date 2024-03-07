@@ -9,6 +9,7 @@ def main():
     from Game import Game
     from Rules import Rules
     from HighScore import HighScore
+    from Dice import Dice
     import sys
 
     while True:
@@ -31,6 +32,10 @@ def main():
                 # Computer method
                 intelligence.intelligence_move()
                 # Player method2
+                currentPlayer = input("Please enter your name: ")
+                player1 = Player(Game)
+                game = Game()
+                infoReturned = game.PlayerVsComputer(player1, intelligence)
 
             elif option == 2:
                 print(">> Player vs Player <<\n")

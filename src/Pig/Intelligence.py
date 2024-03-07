@@ -1,5 +1,8 @@
 """This module contains the class for the intelligence."""
+import random
 from Dice import Dice
+from Player import Player
+
 """This module contains the class for the intelligence."""
 
 # Class for the intelligence
@@ -19,19 +22,18 @@ class Intelligence():
         roundScore = 0
         while roundScore < 100:
             roll = Dice.rollTheDice(self)
-            print(f"Intelligence rolled a {roll}. Total score: {roundScore}")  
+            print(f"Intelligence rolled a {roll}. Total score: {roundScore + roll}")
             roundScore += roll
             
             if roll == 1:
-                print(f"Intelligence rolled a 1. Total score: {roundScore}")
                 roundScore = 0
+                print(f"Intelligence rolled a 1. Total score: {roundScore}")
                 break
            
             if roundScore >= 100:
                 print("Intelligence wins!")
                 break
 
-        print(f"Intelligence total score: {roundScore}")
 
 
         
