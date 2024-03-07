@@ -10,3 +10,6 @@ class Rules:
         print("5. At the end of each turn, the score for that turn is added to the player's total score.")
         print("6. The first player to reach or exceed 100 wins.")
         print("9. If a player rolls a 1, they lose all points for that turn and the other player starts their turn.")
+
+    def __str__(self):
+        return self.rules
