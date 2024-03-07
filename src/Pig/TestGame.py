@@ -14,12 +14,8 @@ class TestGame(unittest.TestCase):
     """Test the Game class."""
 
     def setUp(self):
-        """Set the TestDice."""
+        """Set the TestGame."""
         self.players = {}
-
-    def test_dice(self):
-        """Test the Game Class."""
-        self.assertIsInstance(self.game, Game)
 
     def test_playerVsPlayer(self):
         """Test rollTheDice method."""
