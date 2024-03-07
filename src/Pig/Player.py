@@ -5,18 +5,18 @@ class Player:
  
     def __init__(self, name):
         self.name = name
-        self.score = 0
+        self.scores = 0
 
     def __str__(self):
-        return f"{self.name} has {self.score} points."
+        return f"{self.name} has {self.scores} points."
 
     def createPlayer(self, name):
         self.name = name
         self.score = 0 
-        return "Player added: " + self.name, self.score
+        return "Player added: " + self.name, self.scores
     
-    def addPoints(self, points):
-        self.score += points
+    def addPoints(self, scores):
+        self.score += scores
         return self.score
     
     def changeName(self, name):
@@ -25,6 +25,13 @@ class Player:
     
     def getName(self):
         return self.name
+    
+    def getScores(self):
+        return self.scores
+    
+    def setScores(self, scores):
+        self.scores = scores
+        return self.scores
     
     def setName(self, name):
         self.name = name

@@ -1,3 +1,6 @@
+import random
+from Dice import Dice
+
 class Intelligence:
     """Intelligence class"""
     def __init__(self):
@@ -10,6 +13,7 @@ class Intelligence:
         while roundScore < 100:
             roll = self.rollTheDice()
             print(f"Intelligence rolled a {roll}. Total score: {roundScore}")
+            rollagain = Dice.rollTheDice(self)
             if roll == 1:
                 roundScore = 0
                 print(f"Intelligence rolled a 1. Total score: {roundScore}")
