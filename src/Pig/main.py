@@ -1,16 +1,12 @@
-"""The main function of the game. Contains the menu for the game."""
-
-
 def main():
-    """The main function of the game. Contains the menu for the game."""
 
+    import cmd  
     from Intelligence import Intelligence
-    from Rules import Rules
     from Player import Player
     from Game import Game
-    from HighScore import HighScore
-    import sys
-    # import cmd
+    from Rules import Rules
+
+    listOfPoints = []
 
     while True:
         print("Hello! Welcome to a game of Pig!")
@@ -24,15 +20,22 @@ def main():
 
         try:
             option = int(input("Please enter an option: "))
-
+            
             if option == 1:
                 print(">> Player vs Computer <<\n")
+<<<<<<< HEAD
                 intelligence = Intelligence()
                 game = Game()
                 # Computer method
                 intelligence.intelligence_move()
                 # Player method2
                 intelligence.move()
+=======
+                Intelligence = Intelligence()
+                Intelligence.intelligence_move()
+                Intelligence.move()
+                # Implement one-player mode here
+>>>>>>> 0a2f121030da65ce5ced26eb046c9d2e04e98794
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
@@ -40,11 +43,11 @@ def main():
                 player1 = Player(playersName1)
                 playersName2 = input("Please enter your name (Player 2): ")
                 player2 = Player(playersName2)
-                game = Game()
-                infoReturned = game.PlayerVsPlayer(player1, player2)
-                print(infoReturned)
-
+                newGame = Game()
+                newGame.PlayerVsPlayer(player1, player2, listOfPoints)
+                
             elif option == 3:
+<<<<<<< HEAD
                 print(">> Highscore <<\n")
                 highScore = HighScore()
                 highScore.saveScore(infoReturned)
@@ -54,18 +57,31 @@ def main():
                 print(tot)
 
                 print(infoReturned)
+=======
+<<<<<<< HEAD
+                print(">> Highscore <<\n")
+                # Implement highscore display
+=======
+                if infoReturned is not None:
+                    print(">> Highscore <<\n")
+                    highScore = HighScore()
+                    highScore.saveScore()
+                    highScore.loadScore()
+                    highScore.showHighScore()
+                    # highScore.updateHighScore(infoReturned)
+
+                    print(infoReturned)
+>>>>>>> 593166121c1657a5b111f116c7ffab695e8dc187
+>>>>>>> 0a2f121030da65ce5ced26eb046c9d2e04e98794
 
             elif option == 4:
                 print(">> Rules <<\n")
-                rules = Rules()
-                rules.showRules()
-                backToMenu = input("Enter 0 to go back to the main menu: ")
-                if backToMenu == "0":
-                    print("Going back to the main menu.")
-
+                theRules = Rules("Rules of Pig")
+                theRules.showRules()
+                
             elif option == 5:
                 print("Goodbye!")
-                sys.exit()
+                break  # Exit the loop and end the program
 
             else:
                 print("Invalid option. Please try again.")
@@ -74,7 +90,6 @@ def main():
             print("------------------------------------------")
             print("Invalid input. Please enter a option 1-5.")
             print("------------------------------------------")
-
 
 if __name__ == "__main__":
     main()
