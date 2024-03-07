@@ -28,7 +28,6 @@ def main():
                 # Computer method
                 intelligence.intelligence_move()
                 # Player method2
-                intelligence.move()
 
             elif option == 2:
                 print(">> Player vs Player <<\n")

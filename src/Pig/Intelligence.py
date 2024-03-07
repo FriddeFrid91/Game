@@ -21,18 +21,19 @@ class Intelligence():
             roll = Dice.rollTheDice(self)
             print(f"Intelligence rolled a {roll}. Total score: {roundScore}")  
             roundScore += roll
-            rollagain = input("Do you want to roll again? (yes/no): ")
-            if rollagain == "yes":
-                continue
+            
             if roll == 1:
                 print(f"Intelligence rolled a 1. Total score: {roundScore}")
                 roundScore = 0
                 break
+           
             if roundScore >= 100:
                 print("Intelligence wins!")
                 break
-            else:
-                break
-            return roundScore
+
+        print(f"Intelligence total score: {roundScore}")
+
+
+        
 
  
