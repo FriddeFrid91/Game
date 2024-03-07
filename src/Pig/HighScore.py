@@ -10,33 +10,23 @@ class HighScore:
         """Create the high score."""
         self.score = 0
 
-    def saveScore(self, dictOfScores, highScorez):
+    def saveScore(self, dictOfScores):
         """Save the high score to a file."""
-        with open(highScorez, "wb") as file:
+        for key, value in dictOfScores.items():
+            print(key, value)
+        print(f" TEST{dictOfScores}")
+        with open("highscore.bin", "wb") as file:
             pickle.dump(dictOfScores, file)
 
-    def loadScore(self, HighScorez):
+    def loadScore(self):
         """Load the high score from a file."""
         try:
-            with open(HighScorez, "rb") as file:
-                pickle.load(file)
-                for line in file:
-                    print(line)
-            return self.score
+            with open("highscore.bin", "rb") as file:
+                scores = pickle.load(file)
+                return scores
         except FileNotFoundError:
-            print("No high score found. Starting a new game.")
+            print("No high score found.")
             self.score = 0
-
-    def showHighScore(self):
-        print(f"The current high score is: {self.score}")
-
-    #def updateHighScore(self, score):
-        #if score > self.score:
-            #self.score = score
-            #print("Congratulations! You have a new high score!")
-            #self.saveScore()
-       # else:
-          #  print("You did not beat the high score this time.")
 
     def addScore(self, score):
         self.score += score

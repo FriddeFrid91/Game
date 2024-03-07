@@ -11,7 +11,7 @@ class Game:
 
     def __str__(self):
         """Return the result of the game."""
-        return f"Result: {self.players.items()}"    
+        return f"Result: {self.players.items()}"  
 
     def PlayerVsPlayer(self, player1, player2):
         """Start the game. Player vs Player."""
@@ -24,7 +24,8 @@ class Game:
         dice = Dice(6)
 
         while True:
-            roll_the_dice = input(f"Player {currentPlayer.name} turn - please enter 0 to roll the dice: ")
+            roll_the_dice = input(f"Players {currentPlayer.name} turn "
+                                  + "- please enter 0 to roll the dice: ")
             if roll_the_dice == "0":
                 result = dice.rollTheDice()
                 points_from_new_round = dice.showTheDice(result)
