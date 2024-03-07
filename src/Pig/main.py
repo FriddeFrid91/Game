@@ -29,7 +29,10 @@ def main():
                 print(">> Player vs Computer <<\n")
                 intelligence = Intelligence()
                 game = Game()
-                game.PlayerVsComputer(intelligence)
+                # Computer method
+                intelligence.intelligence_move()
+                # Player method2
+                intelligence.move()
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
@@ -42,15 +45,15 @@ def main():
                 print(infoReturned)
 
             elif option == 3:
-                if infoReturned is not None:
-                    print(">> Highscore <<\n")
-                    highScore = HighScore()
-                    highScore.saveScore()
-                    highScore.loadScore()
-                    highScore.showHighScore()
-                    # highScore.updateHighScore(infoReturned)
+                print(">> Highscore <<\n")
+                highScore = HighScore()
+                highScore.saveScore(infoReturned)
+                tot = highScore.loadScore()
+                highScore.showHighScore()
+                # highScore.updateHighScore(infoReturned)
+                print(tot)
 
-                    print(infoReturned)
+                print(infoReturned)
 
             elif option == 4:
                 print(">> Rules <<\n")
@@ -68,7 +71,9 @@ def main():
                 print("Invalid option. Please try again.")
 
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            print("------------------------------------------")
+            print("Invalid input. Please enter a option 1-5.")
+            print("------------------------------------------")
 
 
 if __name__ == "__main__":
