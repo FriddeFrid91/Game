@@ -51,6 +51,7 @@ def main():
                     backToTheMenu = int(input("Enter 0 to go back to the menu: "))
                     if backToTheMenu == 0:
                         print("Back to the menu.")
+
                 except UnboundLocalError:
                     print("-------------------------")
                     print("No high score to show.")
