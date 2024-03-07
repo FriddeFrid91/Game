@@ -2,18 +2,13 @@
 
 
 class Player:
- 
+    """Class for creating a player."""
     def __init__(self, name):
         self.name = name
         self.scores = 0
 
     def __str__(self):
         return f"{self.name} has {self.scores} points."
-
-    def createPlayer(self, name):
-        self.name = name
-        self.score = 0 
-        return "Player added: " + self.name, self.scores
     
     def addPoints(self, scores):
         self.score += scores
@@ -22,10 +17,10 @@ class Player:
     def changeName(self, name):
         self.name = name
         return self.name
-    
+   
     def getName(self):
         return self.name
-    
+   
     def getScores(self):
         return self.scores
     

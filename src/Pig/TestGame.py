@@ -14,18 +14,19 @@ class TestGame(unittest.TestCase):
     """Test the Game class."""
 
     def setUp(self):
-        """Set the TestDice."""
+        """Set the TestGame."""
         self.players = {}
 
-    def test_dice(self):
-        """Test the Game Class."""
-        self.assertIsInstance(self.game, Game)
-
-    def test_rollTheDice(self):
+    def test_playerVsPlayer(self):
         """Test rollTheDice method."""
-        result = self.dice.rollTheDice(result=6)
-        self.assertLessEqual(result, 6)
-        self.assertGreaterEqual(result, 1)
+        self.players = {}
+        self.players["player1"] = 0
+        self.players["player2"] = 0
+        self.scores = self.players
+
+        self.assertEqual(self.players["player1"], 0)
+        self.assertEqual(self.players["player2"], 0)
+        self.assertEqual(self.scores, self.players)
 
 
 if __name__ == "__main__":

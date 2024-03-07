@@ -38,8 +38,20 @@ def main():
                 newGame.PlayerVsPlayer(player1, player2, listOfPoints)
                 
             elif option == 3:
+<<<<<<< HEAD
                 print(">> Highscore <<\n")
                 # Implement highscore display
+=======
+                if infoReturned is not None:
+                    print(">> Highscore <<\n")
+                    highScore = HighScore()
+                    highScore.saveScore()
+                    highScore.loadScore()
+                    highScore.showHighScore()
+                    # highScore.updateHighScore(infoReturned)
+
+                    print(infoReturned)
+>>>>>>> 593166121c1657a5b111f116c7ffab695e8dc187
 
             elif option == 4:
                 print(">> Rules <<\n")

@@ -22,13 +22,13 @@ class HighScore:
     def showHighScore(self):
         print(f"The current high score is: {self.score}")
 
-    def updateHighScore(self, score):
-        if score > self.score:
-            self.score = score
-            print("Congratulations! You have a new high score!")
-            self.saveScore()
-        else:
-            print("You did not beat the high score this time.")
+    #def updateHighScore(self, score):
+        #if score > self.score:
+            #self.score = score
+            #print("Congratulations! You have a new high score!")
+            #self.saveScore()
+       # else:
+          #  print("You did not beat the high score this time.")
 
     def addScore(self, score):
         self.score += score
