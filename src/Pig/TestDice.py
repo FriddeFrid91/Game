@@ -24,7 +24,7 @@ class TestDice(unittest.TestCase):
     def test_rollTheDice(self):
         """Test rollTheDice method."""
         result = self.dice.rollTheDice(result=6)
-        self.assertLessEqual(result, 6)  
+        self.assertLessEqual(result, 6)
         self.assertGreaterEqual(result, 1)
 
 

@@ -1,10 +1,15 @@
+"""The Game Class. Contains the game logic for the game of Pig."""
 from Dice import Dice
 
+
 class Game:
+    """   The Game Class. Contains the game logic for the game of Pig."""
     def __init__(self):
+        """Create the dicitonary to store the players and their scores."""
         self.players = {}
 
     def PlayerVsPlayer(self, player1, player2):
+        """Start the game. Player vs Player."""
         self.players[player1] = 0
         self.players[player2] = 0
         self.scores = self.players
@@ -26,13 +31,13 @@ class Game:
                     print("")
                     if roll_again == "no":
                         print(f"Your turn is over. You got {self.scores[currentPlayer]} points.")
-                        what = currentPlayer.score = self.players[currentPlayer]
-                        print(what)
+                        totalPointsFromRound = currentPlayer.score = self.players[currentPlayer]
+                        print(f"What {totalPointsFromRound}")
                         currentPlayer = player2 if currentPlayer == player1 else player1
                 else:
-                    self.players[currentPlayer] = 0
+                    self.players[currentPlayer] += 0
                     currentPlayer = player2 if currentPlayer == player1 else player1
 
-                if self.players[currentPlayer] >= 100:
+                if self.players[currentPlayer] >= 20:
                     print(f"Congratulations! {currentPlayer.name} wins!")
                     break
