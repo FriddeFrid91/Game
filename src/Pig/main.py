@@ -48,6 +48,9 @@ def main():
                     highScore.saveScore(infoReturned)
                     tot = highScore.loadScore()
                     print(f"Highscore: {tot}")
+                    backToTheMenu = int(input("Enter 0 to go back to the menu: "))
+                    if backToTheMenu == 0:
+                        print("Back to the menu.")
                 except UnboundLocalError:
                     print("-------------------------")
                     print("No high score to show.")
@@ -57,8 +60,8 @@ def main():
             elif option == 4:
                 print(">> Rules <<\n")
                 theRules = Rules("Rules of Pig")
-                theRules.showRules()
- 
+                print(theRules.showRules())
+
             elif option == 5:
                 print("Goodbye!")
                 sys.exit()
