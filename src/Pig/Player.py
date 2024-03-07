@@ -13,7 +13,7 @@ class Player:
     def addPoints(self, scores):
         self.score += scores
         return self.score
-    
+   
     def changeName(self, name):
         self.name = name
         return self.name

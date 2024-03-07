@@ -23,7 +23,7 @@ def main():
 
         try:
             option = int(input("Please enter an option: "))
-      
+    
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 intelligence = Intelligence()
@@ -40,26 +40,33 @@ def main():
                 player2 = Player(playersName2)
                 newGame = Game()
                 infoReturned = newGame.PlayerVsPlayer(player1, player2)
-                
+            
             elif option == 3:
-                print(">> Highscore <<\n")
-                if infoReturned is not None:
+                try:
+                    print(">> Highscore <<\n")
                     highScore = HighScore()
                     highScore.saveScore(infoReturned)
                     tot = highScore.loadScore()
                     print(f"Highscore: {tot}")
+                except UnboundLocalError:
+                    print("-------------------------")
+                    print("No high score to show.")
+                    print("Please play a game first.")
+                    print("-------------------------")
 
             elif option == 4:
                 print(">> Rules <<\n")
                 theRules = Rules("Rules of Pig")
                 theRules.showRules()
-   
+ 
             elif option == 5:
                 print("Goodbye!")
                 sys.exit()
 
             else:
+                print("---------------------------------")
                 print("Invalid option. Please try again.")
+                print("---------------------------------")
 
         except ValueError:
             print("------------------------------------------")

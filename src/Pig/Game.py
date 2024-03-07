@@ -33,21 +33,20 @@ class Game:
                 if result != 1:
                     self.players[currentPlayer] += points_from_new_round
                     print(f"Total points: {self.scores[currentPlayer]}")
-                    roll_again = input("Do you want to roll again? Enter yes or no: ").lower()
+                    if self.players[currentPlayer] >= 6:
+                        print(f"Congratulations! {currentPlayer.name} wins!")
+                        returnedDict = {key.name: value for key, value in self.players.items()}
+                        for key, value in self.players.items():
+                            print(f"{key.name} got {value} points.")
+                        return returnedDict
+                    elif self.players[currentPlayer] < 6:
+                        roll_again = input("Do you want to roll again? Enter yes or no: ").lower()
                     print("")
                     if roll_again == "no":
                         print(f"Your turn is over. You got {self.scores[currentPlayer]} points.")
-                        total_Points_From_Round = currentPlayer.score = self.players[currentPlayer]
-                        print(f"What {total_Points_From_Round}")
+                        currentPlayer.score = self.players[currentPlayer]
                         currentPlayer = player2 if currentPlayer == player1 else player1
                 else:
                     self.players[currentPlayer] += 0
                     currentPlayer = player2 if currentPlayer == player1 else player1
-
-                """The game ends when a player reaches 100 points."""
-                if self.players[currentPlayer] >= 6:
-                    print(f"Congratulations! {currentPlayer.name} wins!")
-                    returnedDict = {key.name: value for key, value in self.players.items()}
-                    for key, value in self.players.items():
-                        print(f"{key.name} got {value} points.")
-                    return returnedDict
+         
