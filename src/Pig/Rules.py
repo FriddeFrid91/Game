@@ -1,6 +1,6 @@
 class Rules:
-    def __init__(self):
-        self.rules = "Rules"
+    def __init__(self, rules):
+        self.rules = rules
 
     def showRules(self):
         print("1. The game is played with a single six-sided die.")

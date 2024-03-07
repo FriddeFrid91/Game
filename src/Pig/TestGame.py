@@ -21,7 +21,7 @@ class TestGame(unittest.TestCase):
         """Test the Game Class."""
         self.assertIsInstance(self.game, Game)
 
-    def test_rollTheDice(self):
+    def test_playerVsPlayer(self):
         """Test rollTheDice method."""
         result = self.dice.rollTheDice(result=6)
         self.assertLessEqual(result, 6)
