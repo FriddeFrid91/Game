@@ -44,8 +44,13 @@ def main():
             elif option == 3:
                 if infoReturned is not None:
                     print(">> Highscore <<\n")
-                    print(infoReturned)
                     highScore = HighScore()
+                    highScore.saveScore()
+                    highScore.loadScore()
+                    highScore.showHighScore()
+                    # highScore.updateHighScore(infoReturned)
+
+                    print(infoReturned)
 
             elif option == 4:
                 print(">> Rules <<\n")

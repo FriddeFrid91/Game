@@ -10,7 +10,7 @@ class Rules:
         - If the player rolls any other number, it is added to their turn total and their turn continues.
         - Players can choose to "hold", which adds their turn total to their score and ends their turn.
         - The first player to reach or exceed 100 points wins the game.
-        """       
+        """ 
         return rules_text
 
     def __str__(self):

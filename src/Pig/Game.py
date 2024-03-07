@@ -44,6 +44,7 @@ class Game:
                 """The game ends when a player reaches 100 points."""
                 if self.players[currentPlayer] >= 6:
                     print(f"Congratulations! {currentPlayer.name} wins!")
+                    returnedDict = {key.name: value for key, value in self.players.items()}
                     for key, value in self.players.items():
-                        print(f"Player {key.name}, got {value}!")
-                    return self.players.items()
+                        print(f"{key.name} got {value} points.")
+                    return returnedDict
