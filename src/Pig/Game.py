@@ -27,12 +27,12 @@ class Game:
                 if result != 1:
                     self.players[currentPlayer] += points_from_new_round
                     print(f"Total points: {self.scores[currentPlayer]}")
-                    roll_again = input("Do you want to roll again? Please enter yes or no: ").lower()
+                    roll_again = input("Do you want to roll again? Enter yes or no: ").lower()
                     print("")
                     if roll_again == "no":
                         print(f"Your turn is over. You got {self.scores[currentPlayer]} points.")
-                        totalPointsFromRound = currentPlayer.score = self.players[currentPlayer]
-                        print(f"What {totalPointsFromRound}")
+                        total_Points_From_Round = currentPlayer.score = self.players[currentPlayer]
+                        print(f"What {total_Points_From_Round}")
                         currentPlayer = player2 if currentPlayer == player1 else player1
                 else:
                     self.players[currentPlayer] += 0
@@ -40,4 +40,9 @@ class Game:
 
                 if self.players[currentPlayer] >= 20:
                     print(f"Congratulations! {currentPlayer.name} wins!")
-                    break
+                    highscoresdict = {player1: player1.scores, player2: player2.scores}
+                    for key, value in self.players.items():
+                        print(key, value)
+
+                    return highscoresdict
+                # self.players[player1], self.players[player2]

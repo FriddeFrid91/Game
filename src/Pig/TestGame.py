@@ -6,11 +6,11 @@ from Game import Game
 
 def main():
     """Run the test."""
-    TestDice().setUp()
+    TestGame().setUp()
     unittest.main()
 
 
-class TestDice(unittest.TestCase):
+class TestGame(unittest.TestCase):
     """Test the Game class."""
 
     def setUp(self):
@@ -19,7 +19,7 @@ class TestDice(unittest.TestCase):
 
     def test_dice(self):
         """Test the Game Class."""
-        self.assertIsInstance(self.dice, Dice)
+        self.assertIsInstance(self.game, Game)
 
     def test_rollTheDice(self):
         """Test rollTheDice method."""
@@ -30,3 +30,4 @@ class TestDice(unittest.TestCase):
 
 if __name__ == "__main__":
     main()
+    

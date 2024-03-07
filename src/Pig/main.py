@@ -38,11 +38,14 @@ def main():
                 playersName2 = input("Please enter your name (Player 2): ")
                 player2 = Player(playersName2)
                 game = Game()
-                game.PlayerVsPlayer(player1, player2)
+                infoReturned = game.PlayerVsPlayer(player1, player2)
+                print(infoReturned)
 
             elif option == 3:
-                print(">> Highscore <<\n")
-                highScore = HighScore()
+                if infoReturned is not None:
+                    print(">> Highscore <<\n")
+                    print(infoReturned)
+                    highScore = HighScore()
 
             elif option == 4:
                 print(">> Rules <<\n")
