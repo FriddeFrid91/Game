@@ -1,3 +1,6 @@
+import pickle
+import os
+
 class HighScore:
     def __init__(self):
         self.score = 0

@@ -1,13 +1,13 @@
 def main():
     import cmd
     from Intelligence import Intelligence
-    from Dice import Dice
     from Rules import Rules
-    from DiceHand import DiceHand
     from Player import Player
     from Game import Game
     from Rules import Rules
+    import sys
 
+    dictPlayersScore = {}
     listOfPoints = []
 
     while True:
@@ -25,7 +25,7 @@ def main():
            
             if option == 1:
                 print(">> Player vs Computer <<\n")
-                # Implement one-player mode here
+                # enspelare mot datorn
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
@@ -34,7 +34,7 @@ def main():
                 playersName2 = input("Please enter your name (Player 2): ")
                 player2 = Player(playersName2)
                 newGame = Game()
-                newGame.PlayerVsPlayer(player1, player2, listOfPoints)
+                newGame.PlayerVsPlayer(player1, player2)
                
             elif option == 3:
                 print(">> Highscore <<\n")
@@ -46,14 +46,13 @@ def main():
                 theRules.showRules()
                 backToMenu = int(input("Enter 0 to go back to the main menu: "))
                 if backToMenu == 0:
-                    break
+                    print("Going back to the main menu.")
                 else:
                     print("Invalid input. Please enter 0 to go back to the main menu.")
-                            
-      
+
             elif option == 5:
                 print("Goodbye!")
-                break
+                sys.exit()
 
             else:
                 print("Invalid option. Please try again.")
