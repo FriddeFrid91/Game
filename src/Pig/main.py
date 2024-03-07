@@ -39,17 +39,17 @@ def main():
                 playersName2 = input("Please enter your name (Player 2): ")
                 player2 = Player(playersName2)
                 newGame = Game()
-                infoReturned = newGame.PlayerVsPlayer(player1, player2)
+                info_Returned = newGame.PlayerVsPlayer(player1, player2)
           
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")
                     highScore = HighScore()
-                    highScore.saveScore(infoReturned)
+                    highScore.saveScore(info_Returned)
                     tot = highScore.loadScore()
                     print(f"Highscore: {tot}")
-                    backToTheMenu = int(input("Enter 0 to go back to the menu: "))
-                    if backToTheMenu == 0:
+                    back_to_the_menu = int(input("Enter 0 to go back to the menu: "))
+                    if back_to_the_menu == 0:
                         print("Back to the menu.")
                 except UnboundLocalError:
                     print("-------------------------")
@@ -59,10 +59,10 @@ def main():
 
             elif option == 4:
                 print(">> Rules <<\n")
-                theRules = Rules("Rules of Pig")
-                print(theRules.showRules())
-                backToTheMenu = int(input("Enter 0 to go back to the menu: "))
-                if backToTheMenu == 0:
+                the_Rules = Rules("Rules of Pig")
+                print(the_Rules.showRules())
+                back_to_the_menu = int(input("Enter 0 to go back to the menu: "))
+                if back_to_the_menu == 0:
                     print("Back to the menu.")
 
             elif option == 5:
