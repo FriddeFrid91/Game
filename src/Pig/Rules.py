@@ -8,7 +8,7 @@ class Rules:
         """Create the rules of the game."""
         self.rules = rules
 
-    def showRules(self):
+    def show_rules(self):
         """Show the rules of the game."""
         rules_text = "rules.txt"
         with open(rules_text, "r") as file:

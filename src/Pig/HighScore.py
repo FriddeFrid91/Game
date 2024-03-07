@@ -29,9 +29,9 @@ class HighScore:
         loss = self.scores.setdefault(loser, {'wins': 0, 'losses': 0})['losses']
         loss += 1
 
-        updatedScores = {winner: win, loser: loss}
-        self.scores.update(updatedScores)
-        print(updatedScores)
+        updated_Scores = {winner: win, loser: loss}
+        self.scores.update(updated_Scores)
+        print(updated_Scores)
 
         with open("highscore.bin", "ab") as file:
             pickle.dump(self.scores, file)

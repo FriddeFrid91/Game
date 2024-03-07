@@ -34,10 +34,10 @@ def main():
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
-                playersName1 = input("Please enter your name (Player 1): ")
-                player1 = Player(playersName1)
-                playersName2 = input("Please enter your name (Player 2): ")
-                player2 = Player(playersName2)
+                players_Name1 = input("Please enter your name (Player 1): ")
+                player1 = Player(players_Name1)
+                players_Name2 = input("Please enter your name (Player 2): ")
+                player2 = Player(players_Name2)
                 newGame = Game()
                 info_returned = newGame.PlayerVsPlayer(player1, player2)
           
@@ -60,7 +60,7 @@ def main():
             elif option == 4:
                 print(">> Rules <<\n")
                 the_rules = Rules("Rules of Pig")
-                print(the_rules.showRules())
+                print(the_rules.show_rules())
                 back_to_the_menu = int(input("Enter 0 to go back to the menu: "))
                 if back_to_the_menu == 0:
                     print("Back to the menu.")
