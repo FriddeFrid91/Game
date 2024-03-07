@@ -8,6 +8,9 @@ class Game:
         """Create the dicitonary to store the players and their scores."""
         self.players = {}
 
+    def __str__(self):
+        return f"Result: {self.players.items()}"
+
     def PlayerVsPlayer(self, player1, player2):
         """Start the game. Player vs Player."""
         self.players[player1] = 0
@@ -38,11 +41,9 @@ class Game:
                     self.players[currentPlayer] += 0
                     currentPlayer = player2 if currentPlayer == player1 else player1
 
-                if self.players[currentPlayer] >= 20:
+                """The game ends when a player reaches 100 points."""
+                if self.players[currentPlayer] >= 6:
                     print(f"Congratulations! {currentPlayer.name} wins!")
-                    highscoresdict = {player1: player1.scores, player2: player2.scores}
                     for key, value in self.players.items():
-                        print(key, value)
-
-                    return highscoresdict
-                # self.players[player1], self.players[player2]
+                        print(f"Player {key.name}, got {value}!")
+                    return self.players.items()
