@@ -23,7 +23,7 @@ class Game:
         self.players[intelligence] = 0
         self.scores = self.players
 
-        currentPlayer = player1
+        currentPlayer = player
         dice = Dice(6)
 
         while True:
