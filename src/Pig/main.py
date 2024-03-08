@@ -37,20 +37,45 @@ def main():
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
-                playersName1 = input("Please enter your name (Player 1): ")
-                player1 = Player(playersName1)
-                playersName2 = input("Please enter your name (Player 2): ")
-                player2 = Player(playersName2)
-                newGame = Game()
-                infoReturned = newGame.player_vs_player(player1, player2)
+                print(">> Player 1 <<")
+                name1 = input("Enter your name: ")
+                if name1 == "":
+                    print("You must enter a name.")                      
+                else:
+                    change_name = input("Are you sure you want to use "
+                                        + "this name? Yes or no: ")
+                    if change_name.lower() == "yes":
+                        player1 = Player(name1, 0)
+                        print(f"Welcome {name1}!")
+                    elif change_name.lower() == "no":
+                        print("Please enter a new name.")
+                    else:
+                        print("Invalid input. Please enter 'yes' or 'no'.")
+                        break
+
+                print(">> Player 2 <<")
+                name2 = input("Enter your name: ")
+                if name2 == "":
+                    print("You must enter a name.")
+                else:
+                    change_name = input("Are you sure you want to use "
+                                        + "this name? Yes or no: ")
+                    if change_name.lower() == "yes":
+                        player2 = Player(name2, 0)
+                        print(f"Welcome {name2}!")
+                    elif change_name.lower() == "no":
+                        continue
+                    else:
+                        print("Invalid input. Please enter 'yes' or 'no'.")
+                        break
+                game = Game()
+                winner = game.player_vs_player(player1, player2)
             
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")
                     highScore = HighScore()
-                    highScore.saveScore(infoReturned)
-                    tot = highScore.loadScore()
-                    print(f"Highscore: {tot}")
+                    highScore.save_score(winner)
                     backToTheMenu = int(input("Enter 0 to go back to the menu: "))
                     if backToTheMenu == 0:
                         print("Back to the menu.")
