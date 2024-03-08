@@ -19,7 +19,7 @@ class Game:
         
     def PlayerVsComputer(self, player1, intelligence):
         """Start the game. Player vs Computer."""
-        self.players[player1] = 0
+        self.players[currentPlayer] = 0
         self.players[intelligence] = 0
         self.scores = self.players
 
