@@ -26,15 +26,13 @@ def main():
 
             if option == 1:
                 print(">> Player vs Computer <<\n")
-                intelligence = Intelligence()
                 # Computer method
-                intelligence.intelligence_move()
+                Intelligence.intelligence_move()
                 # Player method2
                 currentPlayer = input("Please enter your name: ")
                 player1 = Player(Game)
                 game = Game()
-                infoReturned = game.PlayerVsComputer(player1, intelligence)
-                print(infoReturned)
+                infoReturned = game.player_vs_computer(player1, Intelligence)
 
                 # Player method2
 
