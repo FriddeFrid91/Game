@@ -1,8 +1,7 @@
 """Main module for the Pig game."""
 
-
 def main():
-    """Main function for the Pig game.:"""
+    """Main function for the Pig game."""
 
     from Intelligence import Intelligence
     from Player import Player
@@ -35,14 +34,42 @@ def main():
             elif option == 2:
                 print(">> Player vs Player <<\n")
                 print(">> Player 1 <<")
-                player1 = Player()
-                player1.createPlayer()
-                print(">> Player 2 <<")
-                player2 = Player()
-                player1.createPlayer()
-                newGame = Game()
-                info_returned = newGame.PlayerVsPlayer(player1, player2)
-        
+                while True:
+                    name1 = input("Enter your name: ")
+                    if name1 == "":
+                        print("You must enter a name.")
+                        
+                    else:
+                        change_name = input("Are you sure you want to use "
+                                            + "this name? Yes or no: ")
+                        if change_name.lower() == "yes":
+                            player1 = Player(name1, 0)
+                            print(f"Welcome {name1}!")
+                        elif change_name.lower() == "no":
+                            continue
+                        else:
+                            print("Invalid input. Please enter 'yes' or 'no'.")
+                            break
+
+                    print(">> Player 2 <<")
+                    name2 = input("Enter your name: ")
+                    if name2 == "":
+                        print("You must enter a name.")
+                    else:
+                        change_name = input("Are you sure you want to use "
+                                            + "this name? Yes or no: ")
+                        if change_name.lower() == "yes":
+                            player2 = Player(name2, 0)
+                            print(f"Welcome {name2}!")
+                        elif change_name.lower() == "no":
+                            continue
+                        else:
+                            print("Invalid input. Please enter 'yes' or 'no'.")
+                            break
+                    game = Game()
+                
+                    game.player_vs_player(player1, player2)
+
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")

@@ -1,43 +1,36 @@
 class Player:
     """Class for creating a player."""
-    def __init__(self):
-        self.name = ""
-        self.score = 0
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
 
     def __str__(self):
         return f"{self.name} has {self.score} points."
-   
-    def getName(self):
+  
+    def get_name(self):
         """Get the name of the player."""
         return self.name
-     
-    def setName(self, name):
+   
+    def set_name(self, name):
         """Set the name of the player."""
         self.name = name
 
-    def getScore(self):
+    def get_score(self):
         """Get the score of the player."""
         return self.score
-  
-    def setScore(self, score):
+
+    def set_score(self, score):
         """Set the score of the player."""
         self.score = score
 
-    def createPlayer(self):
-        """Create a player."""
-        while True:
-            name = input("Enter your name: ")
-            if name == "":
-                print("You must enter a name.")
-            else:
-                change_name = input("Are you sure you want to use this name? "
-                                    + "Yes or no: ")
-                if change_name.lower() == "yes":
-                    print(f"Welcome {name}!")
-                    self.setName(name)
-                    print(f"Player {self.getName()} has been created.")
-                    return self.getName()
-                elif change_name.lower() == "no":
-                    continue
-                else:
-                    print("Invalid input. Please enter 'yes' or 'no'.")
+    def update_score(self, score):
+        """Update the score of the player."""
+        self.score += score
+   
+    def reset_score(self):
+        """Reset the score of the player."""
+        self.score = 0
+
+    def add_score(self, score):
+        """Add the score of the player."""
+        self.score += score 

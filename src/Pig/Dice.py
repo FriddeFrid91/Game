@@ -12,11 +12,11 @@ class Dice:
         """Create the dice with the number of sides."""
         self.numbers = numbers
 
-    def rollTheDice(self):
+    def roll_the_dice(self):
         """Roll the dice. Return a random number between 1-6."""
         return random.randint(1, self.numbers)
 
-    def showTheDice(self, result):
+    def show_the_dice(self, result):
         """Show the dices outcome."""
         if result == 1:
             print("--------------------")
