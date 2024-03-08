@@ -17,24 +17,9 @@ class HighScore:
     
     def save_score(self, winner):
         """Save the high score."""
-        if winner in self.dict_of_highscores:
-            self.dict_of_highscores[winner] += 1
-        else:
-            self.dict_of_highscores[winner] = 1
-        try:
-            with open(self.filename, "ab") as file:
-                pickle.dump(self.dict_of_highscores, file)
-        except FileNotFoundError:
-            print("File not found.")
- 
-    def load_score(self):
-        """load the high score."""
-        try:
-            with open(self.filename, "rb") as file:
-                self.dict_of_highscores = pickle.load(file)
-        except FileNotFoundError:
-            print("File not found.")
-        return self.dict_of_highscores
+        new_dict = {winner: 1}
+        print(new_dict)
+        self.dict_of_highscores = {}
 
     def get_highScore(self):
         """Get the high score."""

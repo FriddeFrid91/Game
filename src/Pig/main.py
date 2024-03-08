@@ -27,7 +27,7 @@ def main():
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 # Computer method
-                Intelligence.intelligence_move()
+                Intelligence.intelligence_move(11)
                 # Player method2
                 currentPlayer = input("Please enter your name: ")
                 player1 = Player(Game)
@@ -78,8 +78,8 @@ def main():
                     print(">> Highscore <<\n")
                     highscore = HighScore()
                     highscore.save_score(winner)
-                    show_score = highscore.load_score()
-                    print(show_score)
+                    # show_score = highscore.load_score()
+                    # print(show_score)
                     highscore.get_highScore()
                     show_score2 = highscore.get_highScore()
                     print(show_score2)
