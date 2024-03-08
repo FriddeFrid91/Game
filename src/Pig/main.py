@@ -23,7 +23,7 @@ def main():
 
         try:
             option = int(input("Please enter an option: "))
-   
+
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 intelligence = Intelligence()
@@ -34,13 +34,15 @@ def main():
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
-                players_Name1 = input("Please enter your name (Player 1): ")
-                player1 = Player(players_Name1)
-                players_Name2 = input("Please enter your name (Player 2): ")
-                player2 = Player(players_Name2)
+                print(">> Player 1 <<")
+                player1 = Player()
+                player1.createPlayer()
+                print(">> Player 2 <<")
+                player2 = Player()
+                player1.createPlayer()
                 newGame = Game()
                 info_returned = newGame.PlayerVsPlayer(player1, player2)
-          
+        
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")

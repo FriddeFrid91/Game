@@ -1,6 +1,7 @@
 
 """The HighScore class. Contains the high score logic for the game of Pig."""
 import pickle
+from Game import Game
 
 
 class HighScore:
@@ -9,6 +10,8 @@ class HighScore:
     def __init__(self):
         """Create the high score."""
         self.scores = {}
+        super().__init__()
+        Game.__init__(self)
 
     def saveScore(self, dictOfScores):
         """Save the high score to a file."""
@@ -16,7 +19,7 @@ class HighScore:
         player1, player2 = list(highScoreDict.keys())
         score1, score2 = list(highScoreDict.values())
         print(player1, player2, score1, score2)
-  
+ 
         if score1 > score2:
             winner = player1
             loser = player2
