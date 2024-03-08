@@ -18,6 +18,7 @@ class HighScore:
     def save_score(self, winner):
         """Save the high score."""
         new_dict = {winner: 1}
+        print(new_dict)
 
     def get_highScore(self):
         """Get the high score."""

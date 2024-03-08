@@ -6,6 +6,7 @@ from HighScore import HighScore
 from Intelligence import Intelligence
 import sys
 
+
 def main():
     """Main function for the Pig game."""
  
@@ -24,59 +25,59 @@ def main():
             option = int(input("Please enter an option: "))
     
             if option == 1:
-                    print(">> Player vs Computer <<\n")
-                    intelligence = Intelligence()
-                    game = Game()
-                    # Computer method
-                    intelligence.intelligence_move() 
-                     # Player method2
-                    player1 = input("Please enter your name: ")
-                    player1 = Player(Game)
-                    infoReturned = game.PlayerVsComputer(player1, intelligence)
+                print(">> Player vs Computer <<\n")
+                intelligence = Intelligence()
+                game = Game()
+                # Computer method
+                intelligence.intelligence_move() 
+                # Player method2
+                player1 = input("Please enter your name: ")
+                player1 = Player(Game)
+                infoReturned = game.PlayerVsComputer(player1, intelligence)
 
             elif option == 2:
-                    print(">> Player vs Player <<\n")
-                    playersName1 = input("Please enter your name (Player 1): ")
-                    player1 = Player(playersName1)
-                    playersName2 = input("Please enter your name (Player 2): ")
-                    player2 = Player(playersName2)
-                    newGame = Game()
-                    infoReturned = newGame.PlayerVsPlayer(player1, player2)
+                print(">> Player vs Player <<\n")
+                playersName1 = input("Please enter your name (Player 1): ")
+                player1 = Player(playersName1)
+                playersName2 = input("Please enter your name (Player 2): ")
+                player2 = Player(playersName2)
+                newGame = Game()
+                infoReturned = newGame.player_vs_player(player1, player2)
             
             elif option == 3:
                 try:
-                        print(">> Highscore <<\n")
-                        highScore = HighScore()
-                        highScore.saveScore(infoReturned)
-                        tot = highScore.loadScore()
-                        print(f"Highscore: {tot}")
-                        backToTheMenu = int(input("Enter 0 to go back to the menu: "))
-                        if backToTheMenu == 0:
-                            print("Back to the menu.")
+                    print(">> Highscore <<\n")
+                    highScore = HighScore()
+                    highScore.saveScore(infoReturned)
+                    tot = highScore.loadScore()
+                    print(f"Highscore: {tot}")
+                    backToTheMenu = int(input("Enter 0 to go back to the menu: "))
+                    if backToTheMenu == 0:
+                        print("Back to the menu.")
                 except UnboundLocalError:
-                        print("-------------------------")
-                        print("No high score to show.")
-                        print("Please play a game first.")
-                        print("-------------------------")
+                    print("-------------------------")
+                    print("No high score to show.")
+                    print("Please play a game first.")
+                    print("-------------------------")
 
             elif option == 4:
-                    print(">> Rules <<\n")
-                    theRules = Rules("Rules of Pig")
-                    print(theRules.show_rules())
+                print(">> Rules <<\n")
+                theRules = Rules("Rules of Pig")
+                print(theRules.show_rules())
 
             elif option == 5:
                 print("Goodbye!")
                 break
                 sys.exit()
             else:
-                    print("---------------------------------")
-                    print("Invalid option. Please try again.")
-                    print("---------------------------------")
+                print("---------------------------------")
+                print("Invalid option. Please try again.")
+                print("---------------------------------")
         
         except ValueError:
-                print("------------------------------------------")
-                print("Invalid input. Please enter a option 1-5.")
-                print("------------------------------------------")          
+            print("------------------------------------------")
+            print("Invalid input. Please enter a option 1-5.")
+            print("------------------------------------------")          
 
 
 if __name__ == "__main__":
