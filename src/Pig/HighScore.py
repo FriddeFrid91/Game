@@ -36,6 +36,8 @@ class HighScore:
 
         sorted_dict = dict(sorted(self.dict_of_highscores.items(), key=lambda x: x[1]))
 
+        print(">> Highscore <<")
+        self.dict_of_highscores = sorted_dict
         for a in sorted_dict:
             print(f"{a} has {sorted_dict[a]} wins.")
 
