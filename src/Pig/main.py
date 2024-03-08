@@ -45,7 +45,7 @@ def main():
                         player1 = Player(name1, 0)
                         print(f"Welcome {name1}!")
                     elif change_name.lower() == "no":
-                        continue
+                        print("Please enter a new name.")
                     else:
                         print("Invalid input. Please enter 'yes' or 'no'.")
                         break
