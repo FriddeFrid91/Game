@@ -4,26 +4,39 @@ import pickle
 
 
 class HighScore:
-    """The HighScore class. Contains the high score logic for the game of Pig."""
+    """The HighScore class. Contains the high score logic."""
 
     def __init__(self):
         """Create the high score."""
-        self.scores = {}
+        self.dict_of_highscores = {}
+        self.filename = "highscore.txt"
 
-    def saveScore(self, dictOfScores):
-        """Save the high score to a file."""
-        self.scores.update(dictOfScores)
-        with open("highscore.bin", "ab") as file:
-            pickle.dump(self.scores, file)
-
-    def loadScore(self):
-        """Load the high score from a file."""
+    def __str__(self):
+        """Return the high score."""
+        return f"High score: {self.filename} "
+    
+    def save_score(self, winner):
+        """Save the high score."""
+        if winner in self.dict_of_highscores:
+            self.dict_of_highscores[winner] += 1
+        else:
+            self.dict_of_highscores[winner] = 1
         try:
-            with open("highscore.bin", "rb") as file:
-                scores = pickle.load(file)
-            for key, value in self.scores.items():
-                print(f"{key} got {value} points.")
-            return scores
+            with open(self.filename, "wb") as file:
+                pickle.dump(self.dict_of_highscores, file)
         except FileNotFoundError:
-            print("No high score found.")
-            self.scores = {}
+            print("File not found.")
+ 
+    def load_score(self):
+        """load the high score."""
+        try:
+            with open(self.filename, "rb") as file:
+                self.dict_of_highscores = pickle.load(file)
+        except FileNotFoundError:
+            print("File not found.")
+        return self.dict_of_highscores
+
+    def get_highScore(self):
+        """Get the high score."""
+        for a in self.dict_of_highscores:
+            return f"{a} has {self.dict_of_highscores[a]} wins."

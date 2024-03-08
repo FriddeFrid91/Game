@@ -1,5 +1,7 @@
-"""The Game Class. Contains the game logic for the game of Pig."""
 from Dice import Dice
+from Player import Player
+
+"""The Game Class. Contains the game logic for the game of Pig."""
 
 '''The Game Class. Contains the game logic for the game of Pig.'''
 
@@ -9,15 +11,18 @@ class Game:
     """The Game Class. Contains the game logic for the game of Pig."""
 
     def __init__(self):
-        """Create the dicitonary to store the players and their scores."""
-        self.players = {}
+        """Constructor for the Game class."""
+        self.players = []
+        self.player = Player(name="", score=0)
+        self.dice = Dice(6)
 
     def __str__(self):
         """Return the result of the game."""
-        return f"Result: {self.players.items()}"  
+        return "Result: Players"
 
-    def PlayerVsPlayer(self, player1, player2):
+    def player_vs_player(self, player1, player2):
         """Start the game. Player vs Player."""
+<<<<<<< HEAD
         self.players[player1] = 0
         self.players[player2] = 0
         self.scores = self.players
@@ -26,13 +31,16 @@ class Game:
         currentPlayer = player1
         dice = Dice(6)
  
+=======
+        current_player = player1
+>>>>>>> c65fa58fbfc7384a5fcdc3969564bf333c76ebb0
         while True:
-            roll_the_dice = input(f"Players {currentPlayer.name} turn "
-                                  + "- please enter 0 to roll the dice: ")
-            if roll_the_dice == "0":
-                result = dice.rollTheDice()
-                points_from_new_round = dice.showTheDice(result)
+            print(">> Player vs Player <<\n")
+            print(">> A new round of Pig is starting! <<")
+            print(f"{player1.get_name()} has {player1.get_score()} points.")
+            print(f"{player2.get_name()} has {player2.get_score()} points.")
 
+<<<<<<< HEAD
                 if result != 1:
                     self.players[currentPlayer] += points_from_new_round
                     print(f"Total points: {self.scores[currentPlayer]}")
@@ -89,3 +97,34 @@ class Game:
                     self.players[currentPlayer] += 0
                     currentPlayer = intelligence if currentPlayer == player1 else player1
          
+=======
+            print(f"{current_player.get_name()} is playing.")
+            roll_the_dice = input("Press enter to roll the dice. ")
+            if roll_the_dice == "":
+                roll = self.dice.roll_the_dice()
+                tot = self.dice.show_the_dice(roll)
+                if tot == 0:
+                    current_player.reset_score()
+                    if current_player == player1:
+                        current_player = player2             
+                    else:
+                        current_player = player1
+                elif tot > 1:
+                    current_player.add_score(tot)
+                    if current_player.get_score() >= 6:
+                        print(f"{current_player.get_name()} has won the game!")
+                        return current_player.get_name() 
+                    print(f"{current_player.get_name()} has {current_player.get_score()} points.")
+                    hold = input("Do you want to hold? Yes or no: ")
+                    if hold.lower() == "yes":
+                        if current_player == player1:
+                            current_player = player2
+                        else:
+                            current_player = player1
+                    elif hold.lower() == "no":
+                        continue
+                    else:
+                        print("Invalid input. Press enter to roll the dice.")
+            else:
+                print("Invalid input. Press enter to roll the dice.")
+>>>>>>> c65fa58fbfc7384a5fcdc3969564bf333c76ebb0
