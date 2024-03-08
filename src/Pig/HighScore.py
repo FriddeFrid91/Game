@@ -17,7 +17,9 @@ class HighScore:
    
     def save_score(self, winner):
         """Save the high score."""
-        new_info = {winner: 1}
+        if winner == 0:
+            return
+        new_info = {winner: 0}
         print(f"{new_info} OK")
         try:
             with open(self.filename, "rb") as file:
@@ -33,13 +35,6 @@ class HighScore:
         else:
             with open(self.filename, "wb") as file:
                 pickle.dump(self.dict_of_highscores, file)
-
-        sorted_dict = dict(sorted(self.dict_of_highscores.items(), key=lambda x: x[1]))
-
-        print(">> Highscore <<")
-        self.dict_of_highscores = sorted_dict
-        for a in sorted_dict:
-            print(f"{a} has {sorted_dict[a]} wins.")
 
         for a in self.dict_of_highscores:
             print(f"{a} has {self.dict_of_highscores[a]} wins.")
