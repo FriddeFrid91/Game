@@ -22,7 +22,7 @@ class HighScore:
         else:
             self.dict_of_highscores[winner] = 1
         try:
-            with open(self.filename, "wb") as file:
+            with open(self.filename, "ab") as file:
                 pickle.dump(self.dict_of_highscores, file)
         except FileNotFoundError:
             print("File not found.")
