@@ -17,9 +17,12 @@ class HighScore:
     
     def save_score(self, winner):
         """Save the high score."""
-        new_dict = {winner: 1}
-        print(new_dict)
-        self.dict_of_highscores = {}
+        new_dict = {}
+        self.dict_of_highscores = new_dict
+        if new_dict.keys().__contains__(winner):
+            new_dict[winner] += 1
+        sum = self.dict_of_highscores.update(new_dict)
+        print(f"High score: {sum}")
 
     def get_highScore(self):
         """Get the high score."""

@@ -80,9 +80,6 @@ def main():
                     highscore.save_score(winner)
                     # show_score = highscore.load_score()
                     # print(show_score)
-                    highscore.get_highScore()
-                    show_score2 = highscore.get_highScore()
-                    print(show_score2)
                     back_to_the_menu = int(input("Enter 0 to go back to the menu: "))
                     if back_to_the_menu == 0:
                         print("Back to the menu.")
