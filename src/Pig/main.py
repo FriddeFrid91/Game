@@ -8,12 +8,9 @@ from HighScore import HighScore
 import sys
 
 
-
 def main():
     """Main function for the Pig game."""
-
-   
-       
+ 
     while True:
         print("Hello! Welcome to a game of Pig!")
         print("*************************")
@@ -30,9 +27,15 @@ def main():
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 intelligence = Intelligence()
-                game = Game()
                 # Computer method
                 intelligence.intelligence_move()
+                # Player method2
+                currentPlayer = input("Please enter your name: ")
+                player1 = Player(Game)
+                game = Game()
+                infoReturned = game.PlayerVsComputer(player1, intelligence)
+                print(infoReturned)
+
                 # Player method2
 
             elif option == 2:
@@ -103,21 +106,21 @@ def main():
                 elif option == 4:
                     print(">> Rules <<\n")
                     theRules = Rules("Rules of Pig")
-                    print(theRules.showRules())
+                    print(theRules.show_rules())
 
                 elif option == 5:
                     print("Goodbye!")
+                    break
                     sys.exit()
 
                 else:
                     print("---------------------------------")
                     print("Invalid option. Please try again.")
                     print("---------------------------------")
-
-            except ValueError:
-                print("------------------------------------------")
-                print("Invalid input. Please enter a option 1-5.")
-                print("------------------------------------------")
+        except ValueError:
+            print("------------------------------------------")
+            print("Invalid input. Please enter a option 1-5.")
+            print("------------------------------------------")
 
 
 if __name__ == "__main__":
