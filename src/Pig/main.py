@@ -75,7 +75,12 @@ def main():
                 try:
                     print(">> Highscore <<\n")
                     highScore = HighScore()
+                    if winner == "":
+                        print("No winner to save.")
+                        break
                     highScore.save_score(winner)
+                    highscore = highScore.get_highScore()
+                    print(highscore)
                     backToTheMenu = int(input("Enter 0 to go back to the menu: "))
                     if backToTheMenu == 0:
                         print("Back to the menu.")

@@ -17,6 +17,9 @@ class HighScore:
     
     def save_score(self, winner):
         """Save the high score."""
+        if winner == "":
+            print("No winner to save.")
+            return "No winner to save."
         new_info = {winner: 1}
         print(f"{new_info} OK")
         try:
