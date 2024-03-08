@@ -3,8 +3,6 @@ from Player import Player
 
 """The Game Class. Contains the game logic for the game of Pig."""
 
-'''The Game Class. Contains the game logic for the game of Pig.'''
-
 
 class Game:
     """The Game Class. Contains the game logic for the game of Pig."""
@@ -18,6 +16,7 @@ class Game:
     def __str__(self):
         """Return the result of the game."""
         return "Result: Players"
+<<<<<<< HEAD
 
     def player_vs_player(self, player1, player2):
         """Start the game. Player vs Player."""
@@ -55,6 +54,8 @@ class Game:
                     self.players[currentPlayer] += 0
                     currentPlayer = player2 if currentPlayer == player1 else player1
 
+=======
+>>>>>>> 7febced09c475770c81eb1157502a65defdc1aa9
         
     def PlayerVsComputer(self, player1, intelligence):
         """Start the game. Player vs Computer."""
@@ -90,7 +91,10 @@ class Game:
                         currentPlayer = intelligence if currentPlayer == player1 else player1
                 else:
                     self.players[currentPlayer] += 0
+<<<<<<< HEAD
                     currentPlayer = intelligence if currentPlayer == player1 else player1
+=======
+>>>>>>> 7febced09c475770c81eb1157502a65defdc1aa9
                     currentPlayer = intelligence if currentPlayer == player1 else player
 
     def player_vs_player(self, player1, player2):

@@ -17,15 +17,9 @@ class TestGame(unittest.TestCase):
         """Set the TestGame."""
         self.players = {}
 
-    def test_playerVsPlayer(self):
+    def test_player_vs_player(self):
         """Test rollTheDice method."""
-        self.players = {}
-        self.players["player1"] = 0
-        self.players["player2"] = 0
         self.scores = self.players
-
-        self.assertEqual(self.players["player1"], 0)
-        self.assertEqual(self.players["player2"], 0)
         self.assertEqual(self.scores, self.players)
 
 

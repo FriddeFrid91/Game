@@ -3,7 +3,7 @@
 
 class Rules:
     """This class is used to display the rules of the game."""
- 
+
     def __init__(self, rules):
         """Create the rules of the game."""
         self.rules = rules

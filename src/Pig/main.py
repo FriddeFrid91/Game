@@ -25,6 +25,7 @@ def main():
             option = int(input("Please enter an option: "))
     
             if option == 1:
+<<<<<<< HEAD
                     print(">> Player vs Computer <<\n")
                     intelligence = Intelligence()
                     game = Game()
@@ -48,46 +49,97 @@ def main():
                     newGame = Game()
                     newGame.player_vs_player(player1, player2)      
 
+=======
+                print(">> Player vs Computer <<\n")
+                intelligence = Intelligence()
+                game = Game()
+                # Computer method
+                intelligence.intelligence_move() 
+                # Player method2
+                player1 = input("Please enter your name: ")
+                player1 = Player(Game)
+                infoReturned = game.PlayerVsComputer(player1, intelligence)
+
+            elif option == 2:
+                print(">> Player vs Player <<\n")
+                print(">> Player 1 <<")
+                name1 = input("Enter your name: ")
+                if name1 == "":
+                    print("You must enter a name.")                      
+                else:
+                    change_name = input("Are you sure you want to use "
+                                        + "this name? Yes or no: ")
+                    if change_name.lower() == "yes":
+                        player1 = Player(name1, 0)
+                        print(f"Welcome {name1}!")
+                    elif change_name.lower() == "no":
+                        print("Please enter a new name.")
+                    else:
+                        print("Invalid input. Please enter 'yes' or 'no'.")
+                        break
+
+                print(">> Player 2 <<")
+                name2 = input("Enter your name: ")
+                if name2 == "":
+                    print("You must enter a name.")
+                else:
+                    change_name = input("Are you sure you want to use "
+                                        + "this name? Yes or no: ")
+                    if change_name.lower() == "yes":
+                        player2 = Player(name2, 0)
+                        print(f"Welcome {name2}!")
+                    elif change_name.lower() == "no":
+                        continue
+                    else:
+                        print("Invalid input. Please enter 'yes' or 'no'.")
+                        break
+                game = Game()
+                winner = game.player_vs_player(player1, player2)
+            
+>>>>>>> 7febced09c475770c81eb1157502a65defdc1aa9
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")
-                    highscore = HighScore()
-                    highscore.save_score(winner)
-                    # show_score = highscore.load_score()
-                    # print(show_score)
-                    highscore.get_highScore()
-                    show_score2 = highscore.get_highScore()
-                    print(show_score2)
-                    back_to_the_menu = int(input("Enter 0 to go back to the menu: "))
-                    if back_to_the_menu == 0:
+                    highScore = HighScore()
+                    highScore.save_score(winner)
+                    backToTheMenu = int(input("Enter 0 to go back to the menu: "))
+                    if backToTheMenu == 0:
                         print("Back to the menu.")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7febced09c475770c81eb1157502a65defdc1aa9
                 except UnboundLocalError:
-                        print("-------------------------")
-                        print("No high score to show.")
-                        print("Please play a game first.")
-                        print("-------------------------")
+                    print("-------------------------")
+                    print("No high score to show.")
+                    print("Please play a game first.")
+                    print("-------------------------")
 
             elif option == 4:
-                    print(">> Rules <<\n")
-                    theRules = Rules("Rules of Pig")
-                    print(theRules.show_rules())
+                print(">> Rules <<\n")
+                theRules = Rules("Rules of Pig")
+                print(theRules.show_rules())
 
             elif option == 5:
-                    print("Goodbye!")
-                    break
-                    sys.exit()
-
+                print("Goodbye!")
+                break
+                sys.exit()
             else:
+<<<<<<< HEAD
                     print("---------------------------------")
                     print("Invalid option. Please try again.")
                     print("---------------------------------")
+=======
+                print("---------------------------------")
+                print("Invalid option. Please try again.")
+                print("---------------------------------")
+        
+>>>>>>> 7febced09c475770c81eb1157502a65defdc1aa9
         except ValueError:
             print("------------------------------------------")
             print("Invalid input. Please enter a option 1-5.")
-            print("------------------------------------------")
+            print("------------------------------------------")          
 
 
 if __name__ == "__main__":
     main()
-    
