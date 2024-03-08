@@ -23,7 +23,7 @@ def main():
 
         try:
             option = int(input("Please enter an option: "))
-    
+
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 intelligence = Intelligence()
@@ -34,22 +34,24 @@ def main():
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
-                playersName1 = input("Please enter your name (Player 1): ")
-                player1 = Player(playersName1)
-                playersName2 = input("Please enter your name (Player 2): ")
-                player2 = Player(playersName2)
+                print(">> Player 1 <<")
+                player1 = Player()
+                player1.createPlayer()
+                print(">> Player 2 <<")
+                player2 = Player()
+                player1.createPlayer()
                 newGame = Game()
-                infoReturned = newGame.PlayerVsPlayer(player1, player2)
-            
+                info_returned = newGame.PlayerVsPlayer(player1, player2)
+        
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")
                     highScore = HighScore()
-                    highScore.saveScore(infoReturned)
+                    highScore.saveScore(info_returned)
                     tot = highScore.loadScore()
                     print(f"Highscore: {tot}")
-                    backToTheMenu = int(input("Enter 0 to go back to the menu: "))
-                    if backToTheMenu == 0:
+                    back_to_the_menu = int(input("Enter 0 to go back to the menu: "))
+                    if back_to_the_menu == 0:
                         print("Back to the menu.")
 
                 except UnboundLocalError:
@@ -60,8 +62,11 @@ def main():
 
             elif option == 4:
                 print(">> Rules <<\n")
-                theRules = Rules("Rules of Pig")
-                print(theRules.showRules())
+                the_rules = Rules("Rules of Pig")
+                print(the_rules.show_rules())
+                back_to_the_menu = int(input("Enter 0 to go back to the menu: "))
+                if back_to_the_menu == 0:
+                    print("Back to the menu.")
 
             elif option == 5:
                 print("Goodbye!")
