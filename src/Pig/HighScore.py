@@ -1,7 +1,6 @@
 
 """The HighScore class. Contains the high score logic for the game of Pig."""
 import pickle
-from Game import Game
 
 
 class HighScore:
@@ -9,44 +8,32 @@ class HighScore:
 
     def __init__(self):
         """Create the high score."""
-        self.scores = {}
-        super().__init__()
-        Game.__init__(self)
+        self.dict_of_highscores = {}
+        self.filename = "highscore.txt"
 
-    def saveScore(self, dictOfScores):
-        """Save the high score to a file."""
-        highScoreDict = dictOfScores
-        player1, player2 = list(highScoreDict.keys())
-        score1, score2 = list(highScoreDict.values())
-        print(player1, player2, score1, score2)
- 
-        if score1 > score2:
-            winner = player1
-            loser = player2
-
-        elif score1 < score2:
-            winner = player2
-            loser = player1
-        win = self.scores.setdefault(winner, {'wins': 0, 'losses': 0})['wins']
-        win += 1
-        loss = self.scores.setdefault(loser, {'wins': 0, 'losses': 0})['losses']
-        loss += 1
-
-        updated_Scores = {winner: win, loser: loss}
-        self.scores.update(updated_Scores)
-        print(updated_Scores)
-
-        with open("highscore.bin", "ab") as file:
-            pickle.dump(self.scores, file)
-
-    def loadScore(self):
-        """Load the high score from a file."""
+    def __str__(self):
+        """Return the high score."""
+        return "High score: "
+    
+    def save_score(self, winner):
+        """Save the high score."""
+        self.dict_of_highscores.update({winner: 1})
         try:
-            with open("highscore.bin", "rb") as file:
-                pickle.load(file)
-            for key, value in self.scores.items():
-                print(f"{key} got {value} points.")
-            return self.scores.items()
+            with open(self.filename, "wb") as file:
+                pickle.dump(self.dict_of_highscores, file)
         except FileNotFoundError:
-            print("No high score found.")
-            self.scores = {}
+            print("File not found.")
+    
+    def load_score(self):
+        """load the high score."""
+        try:
+            with open(self.filename, "rb") as file:
+                self.dict_of_highscores = pickle.load(file)
+        except FileNotFoundError:
+            print("File not found.")
+  
+    def get_highScore(self):
+        """Get the high score."""
+        for a in self.dict_of_highscores:
+            return f"{a} has {self.dict_of_highscores[a]} wins."
+  

@@ -19,9 +19,15 @@ class Dice:
     def show_the_dice(self, result):
         """Show the dices outcome."""
         if result == 1:
-            return f"Sorry, you got a 1. Your turn is over {0}."
+            print("--------------------")
+            print("Sorry, you got a 1. Your turn is over.")
+            print("--------------------")
+            return 0
         else:
-            return f"You got a {result}!"
+            print("--------------------")
+            print(f"You got a {result}!")
+            print("--------------------")
+            return result
 
     def getDice(self):
         """Get the number of sides on the dice."""

@@ -15,13 +15,10 @@ class Game:
 
     def __str__(self):
         """Return the result of the game."""
-        return "Result: Players"  # Placeholder for meaningful result
+        return "Result: Players"
 
     def player_vs_player(self, player1, player2):
         """Start the game. Player vs Player."""
-        listOfPlayers = (player1, player2)
-        for a in listOfPlayers:
-            print(a.get_name())
         current_player = player1
         while True:
             print(">> Player vs Player <<\n")
@@ -34,27 +31,18 @@ class Game:
             if roll_the_dice == "":
                 roll = self.dice.roll_the_dice()
                 tot = self.dice.show_the_dice(roll)
-                if tot == 1:
+                if tot == 0:
                     current_player.reset_score()
                     if current_player == player1:
-                        current_player = player2
-                        break
+                        current_player = player2             
                     else:
                         current_player = player1
-                        break
                 elif tot > 1:
                     current_player.add_score(tot)
+                    if current_player.get_score() >= 6:
+                        print(f"{current_player.get_name()} has won the game!")
+                        return current_player.get_name() 
                     print(f"{current_player.get_name()} has {current_player.get_score()} points.")
-                if current_player.get_score() >= 6:
-                    print(f"{current_player.get_name()} has won the game!")
-                    newRound = input("Do you want to play another round? Yes or no: ")
-                    if newRound.lower() == "yes":
-                        current_player.reset_score()
-                        continue
-                    else:
-                        print("Goodbye!")
-                    break
-                else:
                     hold = input("Do you want to hold? Yes or no: ")
                     if hold.lower() == "yes":
                         if current_player == player1:
