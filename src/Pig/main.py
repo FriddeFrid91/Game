@@ -35,7 +35,6 @@ def main():
                 player = Player(name=playerName, score=0)
                 player.score = 0
                 player.player_move()
-                   
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
@@ -80,8 +79,8 @@ def main():
                     highScore.save_score(winner)
                     highscore = highScore.get_highScore()
                     print(highscore)
-                    backToTheMenu = int(input("Enter 0 to go back to the menu: "))
-                    if backToTheMenu == 0:
+                    backToTheMenu = int(input("Enter to go back to the menu:"))
+                    if backToTheMenu == "":
                         print("Back to the menu.")
                 except UnboundLocalError:
                     print("-------------------------")
@@ -97,7 +96,7 @@ def main():
             elif option == 5:
                 print("Goodbye!")
                 break
-                sys.exit()
+
             else:
                 print("---------------------------------")
                 print("Invalid option. Please try again.")
