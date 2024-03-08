@@ -29,12 +29,15 @@ class HighScore:
                     self.dict_of_highscores[winner] += 1
                 else:
                     self.dict_of_highscores.update(new_info)
+                    
+                
         except FileNotFoundError:
             with open(self.filename, "wb") as file:
                 pickle.dump(new_info, file)
-        else:
-            with open(self.filename, "wb") as file:
-                pickle.dump(self.dict_of_highscores, file)
+                
+                
+                with open(self.filename, "wb") as file:
+                    pickle.dump(self.dict_of_highscores, file)
 
         for a in self.dict_of_highscores:
             print(f"{a} has {self.dict_of_highscores[a]} wins.")

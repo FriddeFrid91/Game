@@ -31,9 +31,11 @@ def main():
                 # Computer method
                 intelligence.intelligence_move() 
                 # Player method2
-                player1 = input("Please enter your name: ")
-                player1 = Player(Game)
-                infoReturned = game.PlayerVsComputer(player1, intelligence)
+                playerName = input("Please enter your name: ")
+                player = Player(name=playerName, score=0)
+                player.score = 0
+                player.player_move()
+                   
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
