@@ -19,7 +19,6 @@ class Game:
         """Return the result of the game."""
         return "Result: Players"
 
-<<<<<<< HEAD
     def player_vs_player(self, player1, player2):
         """Start the game. Player vs Player."""
         self.players[player1] = 0
@@ -58,11 +57,8 @@ class Game:
 
         
     def PlayerVsComputer(self, player1, intelligence):
-=======
-    def player_vs_computer(self, player1, intelligence):
->>>>>>> 45450f51e002e8f2a7913ebc53d7929a5d150fe2
         """Start the game. Player vs Computer."""
-        self.players[player1] = 0
+        self.players[currentPlayer] = 0
         self.players[intelligence] = 0
         self.scores = self.players
 
@@ -94,9 +90,7 @@ class Game:
                         currentPlayer = intelligence if currentPlayer == player1 else player1
                 else:
                     self.players[currentPlayer] += 0
-<<<<<<< HEAD
                     currentPlayer = intelligence if currentPlayer == player1 else player1
-=======
                     currentPlayer = intelligence if currentPlayer == player1 else player
 
     def player_vs_player(self, player1, player2):
@@ -137,4 +131,3 @@ class Game:
                         print("Invalid input. Press enter to roll the dice.")
             else:
                 print("Invalid input. Press enter to roll the dice.")
->>>>>>> 45450f51e002e8f2a7913ebc53d7929a5d150fe2
