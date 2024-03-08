@@ -25,40 +25,17 @@ def main():
             option = int(input("Please enter an option: "))
     
             if option == 1:
-<<<<<<< HEAD
-                    print(">> Player vs Computer <<\n")
-                    intelligence = Intelligence()
-                    game = Game()
-                    # Computer method
-                    intelligence.intelligence_move() 
-                     # Player method2
-                    playerName = input("Please enter your name: ")
-                    player = Player(name=playerName, score=0)
-                    player.score = 0
-                    player.player_move()
-                    
-
-
-
-            elif option == 2:
-                    print(">> Player vs Player <<\n")
-                    playersName1 = input("Please enter your name (Player 1): ")
-                    player1 = Player(playersName1)
-                    playersName2 = input("Please enter your name (Player 2): ")
-                    player2 = Player(playersName2)
-                    newGame = Game()
-                    newGame.player_vs_player(player1, player2)      
-
-=======
                 print(">> Player vs Computer <<\n")
                 intelligence = Intelligence()
                 game = Game()
                 # Computer method
                 intelligence.intelligence_move() 
                 # Player method2
-                player1 = input("Please enter your name: ")
-                player1 = Player(Game)
-                infoReturned = game.PlayerVsComputer(player1, intelligence)
+                playerName = input("Please enter your name: ")
+                player = Player(name=playerName, score=0)
+                player.score = 0
+                player.player_move()
+                   
 
             elif option == 2:
                 print(">> Player vs Player <<\n")
@@ -96,7 +73,6 @@ def main():
                 game = Game()
                 winner = game.player_vs_player(player1, player2)
             
->>>>>>> 7febced09c475770c81eb1157502a65defdc1aa9
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")
