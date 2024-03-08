@@ -56,6 +56,7 @@ class Game:
                     self.players[currentPlayer] += 0
                     currentPlayer = player2 if currentPlayer == player1 else player1
 
+        
     def PlayerVsComputer(self, player1, intelligence):
         """Start the game. Player vs Computer."""
         self.players[player1] = 0
@@ -91,4 +92,3 @@ class Game:
                 else:
                     self.players[currentPlayer] += 0
                     currentPlayer = intelligence if currentPlayer == player1 else player1
-         
