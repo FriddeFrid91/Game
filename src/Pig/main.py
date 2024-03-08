@@ -77,14 +77,15 @@ def main():
                 try:
                     print(">> Highscore <<\n")
                     highScore = HighScore()
+                    if winner == "":
+                        print("No winner to save.")
+                        break
                     highScore.save_score(winner)
+                    highscore = highScore.get_highScore()
+                    print(highscore)
                     backToTheMenu = int(input("Enter 0 to go back to the menu: "))
                     if backToTheMenu == 0:
                         print("Back to the menu.")
-<<<<<<< HEAD
-
-=======
->>>>>>> 7febced09c475770c81eb1157502a65defdc1aa9
                 except UnboundLocalError:
                     print("-------------------------")
                     print("No high score to show.")
@@ -101,16 +102,10 @@ def main():
                 break
                 sys.exit()
             else:
-<<<<<<< HEAD
-                    print("---------------------------------")
-                    print("Invalid option. Please try again.")
-                    print("---------------------------------")
-=======
                 print("---------------------------------")
                 print("Invalid option. Please try again.")
                 print("---------------------------------")
         
->>>>>>> 7febced09c475770c81eb1157502a65defdc1aa9
         except ValueError:
             print("------------------------------------------")
             print("Invalid input. Please enter a option 1-5.")
