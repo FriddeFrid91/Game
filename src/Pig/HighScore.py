@@ -15,14 +15,14 @@ class HighScore:
         """Return the high score."""
         return f"High score: {self.filename} "
 
-    def load_testing(self):
+    def load_score(self):
         """Load the HighScore."""
         print(">> Highscore <<\n")
         with open(self.filename, "rb") as file:
             self.dict_of_highscores = pickle.load(file)
             print(f"{self.dict_of_highscores} testing OK")
 
-    def save_testing(self, winner):
+    def save_score(self, winner):
         """Save the high score."""
         if winner is None:
             return
@@ -34,5 +34,3 @@ class HighScore:
         with open(self.filename, "wb") as file:
             pickle.dump(self.dict_of_highscores, file)
         print(f"{self.dict_of_highscores} testing OK")
-
-        return winner == ""

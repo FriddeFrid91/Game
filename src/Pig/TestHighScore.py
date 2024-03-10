@@ -19,15 +19,17 @@ class TestHighScore(unittest.TestCase):
         """Set the TestGame."""
         self.players = {}
 
-    def test_save_score(self):
-        """Test rollTheDice method."""
-        self.scores = self.players
-        self.assertEqual(self.scores, self.players)
-
     def test_load_score(self):
-        """Test rollTheDice method."""
-        self.scores = self.players
-        self.assertEqual(self.scores, self.players) 
+        """Test load_score method."""
+        self.highScore = HighScore()
+        self.assertIsInstance(self.highScore, HighScore)
+        self.assertEqual(self.highScore.load_score(), None)
+
+    def test_save_score(self):
+        """Test save_score method."""
+        self.highScore = HighScore()
+        self.assertIsInstance(self.highScore, HighScore)
+        self.assertEqual(self.highScore.save_score, None)
 
 
 if __name__ == "__main__":

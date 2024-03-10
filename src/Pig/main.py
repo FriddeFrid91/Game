@@ -76,8 +76,8 @@ def main():
                 try:
                     print(">> Highscore <<\n")
                     highScore = HighScore()
-                    highScore.load_testing()
-                    highScore.save_testing(winner)
+                    highScore.load_score()
+                    highScore.save_score(winner)
 
                     backToTheMenu = int(input("Enter to go back to the menu:"))
                     if backToTheMenu == "":
@@ -85,8 +85,8 @@ def main():
 
                 except UnboundLocalError:
                     winner = None
-                    highScore.load_testing()
-                    highScore.save_testing(winner)
+                    highScore.load_score()
+                    highScore.save_score(winner)
 
                     print("-------------------------")
                     print("No high score to show.")
