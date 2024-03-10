@@ -17,6 +17,8 @@ class TestGame(unittest.TestCase):
         """Set the TestGame."""
         self.game = Game()
         self.players = {}
+        self.players["player1"] = 0
+        self.players["player2"] = 0
         self.scores = self.players
         self.player = self.players
 
