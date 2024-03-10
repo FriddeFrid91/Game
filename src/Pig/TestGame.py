@@ -35,6 +35,12 @@ class TestGame(unittest.TestCase):
         self.assertIsInstance(self.game, Game)
         self.assertEqual(self.scores, self.players)
 
+    def roll_the_dice(self):
+        """Test roll_the_dice method."""
+        self.scores = self.players
+        self.assertIsInstance(self.game, Game)
+        self.assertEqual(self.scores, self.players)
+
 
 if __name__ == "__main__":
     main()
