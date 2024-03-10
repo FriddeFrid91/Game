@@ -42,6 +42,12 @@ class TestGame(unittest.TestCase):
         self.assertIsInstance(self.game, Game)
         self.assertEqual(self.scores, self.players)
 
+    def if_roll_again(self):
+        """Test if_roll_again method."""
+        self.scores = self.players
+        self.assertIsInstance(self.game, Game)
+        self.assertEqual(self.scores, self.players)
+
 
 if __name__ == "__main__":
     main()
