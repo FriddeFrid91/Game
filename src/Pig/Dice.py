@@ -29,11 +29,11 @@ class Dice:
             print("--------------------")
             return result
 
-    def getDice(self):
+    def get_dice(self):
         """Get the number of sides on the dice."""
         return self.numbers
 
-    def setDice(self, numbers):
+    def set_dice(self, numbers):
         """Set the number of sides on the dice."""
         self.numbers = numbers
 
