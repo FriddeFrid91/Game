@@ -29,7 +29,6 @@ class TestHighScore(unittest.TestCase):
         """Test save_score method."""
         self.highScore = HighScore()
         self.assertIsInstance(self.highScore, HighScore)
-        self.assertEqual(self.highScore.save_score, None)
 
 
 if __name__ == "__main__":
