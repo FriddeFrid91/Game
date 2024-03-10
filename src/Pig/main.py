@@ -29,7 +29,7 @@ def main():
                 intelligence = Intelligence()
                 game = Game()
                 # Computer method
-                intelligence.intelligence_move() 
+                intelligence.intelligence_move()
                 # Player method2
                 playerName = input("Please enter your name: ")
                 player = Player(name=playerName, score=0)
@@ -71,20 +71,23 @@ def main():
                         break
                 game = Game()
                 winner = game.player_vs_player(player1, player2)
-            
+  
             elif option == 3:
                 try:
                     print(">> Highscore <<\n")
                     highScore = HighScore()
-                    sum = highScore.save_score(winner)
-                    print(sum)
-              
+                    highScore.load_testing()
+                    highScore.save_testing(winner)
+
                     backToTheMenu = int(input("Enter to go back to the menu:"))
                     if backToTheMenu == "":
                         print("Back to the menu.")
+
                 except UnboundLocalError:
                     winner = None
-                    highScore.save_score(winner)
+                    highScore.load_testing()
+                    highScore.save_testing(winner)
+
                     print("-------------------------")
                     print("No high score to show.")
                     print("Please play a game first.")

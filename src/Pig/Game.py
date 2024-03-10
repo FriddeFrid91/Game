@@ -17,7 +17,7 @@ class Game:
         """Return the result of the game."""
         return "Result: Players"
         
-    def PlayerVsComputer(self, player1, intelligence):
+    def player_vs_computer(self, player1, intelligence):
         """Start the game. Player vs Computer."""
         self.players[currentPlayer] = 0
         self.players[intelligence] = 0
@@ -30,8 +30,8 @@ class Game:
             roll_the_dice = input(f"Players {currentPlayer.name} turn "
                                   + "- please enter 0 to roll the dice: ")
             if roll_the_dice == "0":
-                result = dice.rollTheDice()
-                points_from_new_round = dice.showTheDice(result)
+                result = dice.roll_the_dice()
+                points_from_new_round = dice.show_the_dice(result)
 
                 if result != 1:
                     self.players[currentPlayer] += points_from_new_round
@@ -51,7 +51,7 @@ class Game:
                         currentPlayer = intelligence if currentPlayer == player1 else player1
                 else:
                     self.players[currentPlayer] += 0
-                    currentPlayer = intelligence if currentPlayer == player1 else player
+                    currentPlayer = intelligence if currentPlayer == player1 else player2
 
     def player_vs_player(self, player1, player2):
         """Start the game. Player vs Player."""
@@ -77,8 +77,9 @@ class Game:
                     current_player.add_score(tot)
                     if current_player.get_score() >= 6:
                         print(f"{current_player.get_name()} has won the game!")
-                        return current_player.get_name() 
-                    print(f"{current_player.get_name()} has {current_player.get_score()} points.")
+                        return current_player.get_name()
+                    print(f"{current_player.get_name()} has "
+                          + f"{current_player.get_score()} points.")
                     hold = input("Do you want to hold? Yes or no: ")
                     if hold.lower() == "yes":
                         if current_player == player1:
@@ -88,6 +89,6 @@ class Game:
                     elif hold.lower() == "no":
                         continue
                     else:
-                        print("Invalid input. Press enter to roll the dice.")
+                        print("Invalid input. Press write 'yes' or 'no' to roll the dice.")
             else:
                 print("Invalid input. Press enter to roll the dice.")
