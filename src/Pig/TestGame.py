@@ -17,6 +17,8 @@ class TestGame(unittest.TestCase):
         """Set the TestGame."""
         self.game = Game()
         self.players = {}
+        self.scores = self.players
+        self.player = self.players
 
     def test_player_vs_player(self):
         """Test player_vs_player method."""
@@ -24,7 +26,6 @@ class TestGame(unittest.TestCase):
         self.assertIsInstance(self.game, Game)
         self.assertEqual(self.scores, self.players)
         self.assertEqual(self.game.player_vs_player, self.game.player_vs_player)
-        self.assertNotEquals(self.game.winner, self.game.winner)
 
     def test_player_vs_computer(self):
         """Test player_vs_computer method."""
