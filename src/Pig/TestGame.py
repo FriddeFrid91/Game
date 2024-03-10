@@ -48,6 +48,12 @@ class TestGame(unittest.TestCase):
         self.assertIsInstance(self.game, Game)
         self.assertEqual(self.scores, self.players)
 
+    def reset_score(self):
+        """Test reset_score method."""
+        self.scores = self.players
+        self.assertIsInstance(self.game, Game)
+        self.assertEqual(self.scores, self.players)
+
 
 if __name__ == "__main__":
     main()

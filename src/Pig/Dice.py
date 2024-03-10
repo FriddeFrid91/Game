@@ -28,15 +28,3 @@ class Dice:
             print(f"You got a {result}!")
             print("--------------------")
             return result
-
-    def get_dice(self):
-        """Get the number of sides on the dice."""
-        return self.numbers
-
-    def set_dice(self, numbers):
-        """Set the number of sides on the dice."""
-        self.numbers = numbers
-
-    def __str__(self):
-        """Return the number of sides on the dice."""
-        return f"The dice has {self.numbers} sides."

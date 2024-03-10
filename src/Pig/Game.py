@@ -31,7 +31,7 @@ class Game:
                                   + "- please enter 0 to roll the dice: ")
             if roll_the_dice == "0":
                 result = dice.roll_the_dice()
-                points_from_new_round = dice.show_the_dice(result)
+                points_from_new_round = dice.show_the_dice(get.result())
 
                 if result != 1:
                     self.players[currentPlayer] += points_from_new_round
@@ -70,7 +70,7 @@ class Game:
                 if tot == 0:
                     current_player.reset_score()
                     if current_player == player1:
-                        current_player = player2             
+                        current_player = player2           
                     else:
                         current_player = player1
                 elif tot > 1:
