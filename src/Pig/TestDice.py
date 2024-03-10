@@ -21,11 +21,18 @@ class TestDice(unittest.TestCase):
         """Test the Computer class."""
         self.assertIsInstance(self.dice, Dice)
 
-    def test_rollTheDice(self):
+    def test_roll_the_dice(self):
         """Test rollTheDice method."""
         result = self.dice.roll_the_dice()
         self.assertLessEqual(result, 6)
         self.assertGreaterEqual(result, 1)
+  
+    def test_show_the_dice(self):    
+        """Test showTheDice method."""
+        result = self.dice.roll_the_dice()
+        self.assertLessEqual(result, 6)
+        self.assertGreaterEqual(result, 1)
+        self.assertEqual(result, self.dice.show_the_dice(result))
 
 
 if __name__ == "__main__":
