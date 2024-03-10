@@ -31,7 +31,7 @@ class TestDice(unittest.TestCase):
         """Test showTheDice method."""
         result = self.dice.roll_the_dice()
         self.assertLessEqual(result, 6)
-        self.assertGreaterEqual(result, 1)
+        self.assertGreaterEqual(result, 2)
         self.assertEqual(result, self.dice.show_the_dice(result))
 
     def get_dice(self):
