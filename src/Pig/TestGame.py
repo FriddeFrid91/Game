@@ -21,11 +21,13 @@ class TestGame(unittest.TestCase):
     def test_player_vs_player(self):
         """Test player_vs_player method."""
         self.scores = self.players
+        self.assertIsInstance(self.game, Game)
         self.assertEqual(self.scores, self.players)
 
     def test_player_vs_computer(self):
         """Test player_vs_computer method."""
         self.scores = self.players
+        self.assertIsInstance(self.game, Game)
         self.assertEqual(self.scores, self.players)
 
 
