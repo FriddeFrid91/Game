@@ -21,6 +21,7 @@ class TestGame(unittest.TestCase):
         self.players["player2"] = 0
         self.scores = self.players
         self.player = self.players
+        self.dice = self.game.dice
 
     def test_player_vs_player(self):
         """Test player_vs_player method."""
