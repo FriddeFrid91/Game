@@ -41,7 +41,7 @@ def main():
                 print(">> Player 1 <<")
                 name1 = input("Enter your name: ")
                 if name1 == "":
-                    print("You must enter a name.")                      
+                    print("You must enter a name.")                     
                 else:
                     change_name = input("Are you sure you want to use "
                                         + "this name? Yes or no: ")
@@ -76,13 +76,15 @@ def main():
                 try:
                     print(">> Highscore <<\n")
                     highScore = HighScore()
-                    highScore.save_score(winner)
-                    highscore = highScore.get_highScore()
-                    print(highscore)
+                    sum = highScore.save_score(winner)
+                    print(sum)
+              
                     backToTheMenu = int(input("Enter to go back to the menu:"))
                     if backToTheMenu == "":
                         print("Back to the menu.")
                 except UnboundLocalError:
+                    winner = None
+                    highScore.save_score(winner)
                     print("-------------------------")
                     print("No high score to show.")
                     print("Please play a game first.")
