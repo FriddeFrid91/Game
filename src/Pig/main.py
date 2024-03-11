@@ -19,6 +19,7 @@ def main():
         print("* 5. Quit               *")
         print("*************************")
         try:
+        
             option = int(input("Please enter an option: "))
 
             if option == 1:

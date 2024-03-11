@@ -40,29 +40,18 @@ class Player:
 
     def get_score(self):
         """Get the score of the player."""
-        return self.score
+        if self.score < 0:
+            return 0
+        else:
+            return self.score
 
     def set_score(self, score):
         """Set the score of the player."""
         self.score = score
 
-    def update_score(self, score):
-        """Update the score of the player."""
-        self.score += score
-   
-    def reset_score(self, score):
-        """Reset the score of the player."""
+    def lost_score(self, score):
+        """Subtract the score of the player."""
         self.score -= score
-
-    def count_the_round(self, roll):
-        """Count the round. If the player rolls a 1, the round is over. 
-        The points is not added to the total score."""
-        result_of_round = 0
-        list_of_total_rolls = []
-        list_of_total_rolls.append(roll)
-        for a in list_of_total_rolls:
-            result_of_round += a
-        return result_of_round
 
     def add_score(self, score):
         """Add the score of the player."""
