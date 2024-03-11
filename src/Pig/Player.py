@@ -8,7 +8,7 @@ class Player:
 
     def __str__(self):
         return f"{self.name} has {self.score} points."
-    
+ 
     def player_move(self):
         """Player move."""
         roundScore = 0

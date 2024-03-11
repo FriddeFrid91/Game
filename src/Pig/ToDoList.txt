@@ -1,0 +1,8 @@
+09-03 - Highscore uppdateras inte riktigt som den ska. Om senaste vinnaren är t ex "Bella"
+så uppdateras "Bella" varje gång man går in på highscore. Startar man om programmet så funkar
+highscore endast om man har spelet ett spel först. 
+
+09-03 - Input för namnen till player vs player loopar inte riktigt som den ska.
+
+09-03 - Det går inte att öppna highscore förrän man har spelet ett spel. Det bör går att öppna utan att
+ha spelat ett spel. 
