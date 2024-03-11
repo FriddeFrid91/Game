@@ -1,6 +1,7 @@
 
 """The HighScore class. Contains the high score logic for the game of Pig."""
 import pickle
+from Player import Player
 
 
 class HighScore:
@@ -9,6 +10,7 @@ class HighScore:
     def __init__(self):
         """Create the high score."""
         self.dict_of_highscores = {}
+        self.player = Player(name="", score=0)
         self.filename = "highscore.txt"
 
     def __str__(self):
@@ -44,3 +46,4 @@ class HighScore:
         # Save the dictionary to the file.
         with open(self.filename, "wb") as file:
             pickle.dump(self.dict_of_highscores, file)
+        return winner is None

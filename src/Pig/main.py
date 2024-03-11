@@ -72,9 +72,9 @@ def main():
             elif option == 3:
                 try:
                     highScore = HighScore()
-                    highScore.load_score()
+                    highScore.load_score(winner)
                     highScore.save_score(winner)
-
+                    winner = None
                     backToTheMenu = int(input("Enter to go back to the menu:"))
                     if backToTheMenu == "":
                         print("Back to the menu.")
@@ -83,7 +83,7 @@ def main():
 
                 except UnboundLocalError:
                     winner = None
-                    highScore.load_score()
+                    highScore.load_score(winner)
                     highScore.save_score(winner)
 
             elif option == 4:
