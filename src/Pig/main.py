@@ -1,15 +1,13 @@
-import random
 from Game import Game
 from Player import Player
 from Rules import Rules
 from HighScore import HighScore
 from Intelligence import Intelligence
-import sys
 
 
 def main():
     """Main function for the Pig game."""
- 
+
     while True:
         """Main function for the Pig game."""
         print("Hello! Welcome to a game of Pig!")
@@ -19,11 +17,10 @@ def main():
         print("* 3. Highscore          *")
         print("* 4. Rules              *")
         print("* 5. Quit               *")
-        print("*************************")
-            
+        print("*************************")        
         try:
             option = int(input("Please enter an option: "))
-    
+
             if option == 1:
                 print(">> Player vs Computer <<\n")
                 intelligence = Intelligence()
@@ -41,7 +38,7 @@ def main():
                 print(">> Player 1 <<")
                 name1 = input("Enter your name: ")
                 if name1 == "":
-                    print("You must enter a name.")                     
+                    print("You must enter a name.")               
                 else:
                     change_name = input("Are you sure you want to use "
                                         + "this name? Yes or no: ")
@@ -71,10 +68,9 @@ def main():
                         break
                 game = Game()
                 winner = game.player_vs_player(player1, player2)
-  
+
             elif option == 3:
                 try:
-                    print(">> Highscore <<\n")
                     highScore = HighScore()
                     highScore.load_score()
                     highScore.save_score(winner)
@@ -82,16 +78,13 @@ def main():
                     backToTheMenu = int(input("Enter to go back to the menu:"))
                     if backToTheMenu == "":
                         print("Back to the menu.")
+                    else:
+                        print("Invalid input.")
 
                 except UnboundLocalError:
                     winner = None
                     highScore.load_score()
                     highScore.save_score(winner)
-
-                    print("-------------------------")
-                    print("No high score to show.")
-                    print("Please play a game first.")
-                    print("-------------------------")
 
             elif option == 4:
                 print(">> Rules <<\n")
@@ -106,11 +99,11 @@ def main():
                 print("---------------------------------")
                 print("Invalid option. Please try again.")
                 print("---------------------------------")
-        
+  
         except ValueError:
             print("------------------------------------------")
             print("Invalid input. Please enter a option 1-5.")
-            print("------------------------------------------")          
+            print("------------------------------------------")       
 
 
 if __name__ == "__main__":
