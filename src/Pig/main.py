@@ -38,7 +38,7 @@ def main():
                 print(">> Player 1 <<")
                 name1 = input("Enter your name: ")
                 if name1 == "":
-                    print("You must enter a name.")               
+                    print("You must enter a name.")            
                 else:
                     change_name = input("Are you sure you want to use "
                                         + "this name? Yes or no: ")
@@ -72,24 +72,29 @@ def main():
             elif option == 3:
                 try:
                     highScore = HighScore()
-                    highScore.load_score(winner)
+                    highScore.load_score()
                     highScore.save_score(winner)
                     winner = None
-                    backToTheMenu = int(input("Enter to go back to the menu:"))
-                    if backToTheMenu == "":
+                    back_to_menu = int(input("Enter to go back to the menu: "))
+                    if back_to_menu == "":
                         print("Back to the menu.")
                     else:
                         print("Invalid input.")
 
                 except UnboundLocalError:
                     winner = None
-                    highScore.load_score(winner)
+                    highScore.load_score()
                     highScore.save_score(winner)
 
             elif option == 4:
                 print(">> Rules <<\n")
                 theRules = Rules("Rules of Pig")
                 print(theRules.show_rules())
+                back_to_menu = int(input("Enter to go back to the menu: "))
+                if back_to_menu == "":
+                    print("Back to the menu.")
+                else:
+                    print("Invalid input.")
 
             elif option == 5:
                 print("Goodbye!")

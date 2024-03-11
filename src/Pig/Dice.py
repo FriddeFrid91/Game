@@ -28,3 +28,7 @@ class Dice:
             print(f"You got a {result}!")
             print("--------------------")
             return result
+
+    def get_dice(self):
+        """Get the number of sides of the dice."""
+        return self.numbers
