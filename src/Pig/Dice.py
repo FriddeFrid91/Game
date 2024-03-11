@@ -18,16 +18,20 @@ class Dice:
 
     def show_the_dice(self, result):
         """Show the dices outcome."""
+        sum = 0  
         if result == 1:
             print("--------------------")
             print("Sorry, you got a 1. Your turn is over.")
             print("--------------------")
-            return 0
-        else:
+            return sum
+        
+        if result != 1:
+            sum = result
             print("--------------------")
             print(f"You got a {result}!")
             print("--------------------")
-            return result
+            return sum     
+        return sum
 
     def get_dice(self):
         """Get the number of sides of the dice."""

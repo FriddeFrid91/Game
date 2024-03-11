@@ -56,6 +56,8 @@ class Game:
     def player_vs_player(self, player1, player2):
         """Start the game. Player vs Player."""
         current_player = player1
+        rolling_total = []
+    
         while True:
             print(">> Player vs Player <<\n")
             print(">> A new round of Pig is starting! <<")
@@ -66,20 +68,27 @@ class Game:
             roll_the_dice = input("Press enter to roll the dice. ")
             if roll_the_dice == "":
                 roll = self.dice.roll_the_dice()
+                rolled = 0
+                rolling_total.append(roll)
+            
+                for a in rolling_total:
+                    rolled += a
+                print(f"You rolled a {roll}. Total score: {rolled}")     
+
                 tot = self.dice.show_the_dice(roll)
                 if tot == 0:
-                    current_player.reset_score()
                     if current_player == player1:
-                        current_player = player2           
+                        current_player.get_score()
+                        current_player = player2        
                     else:
                         current_player = player1
                 elif tot > 1:
                     current_player.add_score(tot)
-                    if current_player.get_score() >= 6:
+                    if current_player.get_score() >= 50:
                         print(f"{current_player.get_name()} has won the game!")
                         return current_player.get_name()
                     print(f"{current_player.get_name()} has "
-                          + f"{current_player.get_score()} points.")
+                          + f"{current_player.get_score() - rolled} points.")
                     hold = input("Do you want to hold? Yes or no: ")
                     if hold.lower() == "yes":
                         if current_player == player1:
@@ -89,6 +98,7 @@ class Game:
                     elif hold.lower() == "no":
                         continue
                     else:
-                        print("Invalid input. Press write 'yes' or 'no' to roll the dice.")
+                        print("Invalid input. Press write 'yes' or 'no'"
+                              + " to roll the dice.")
             else:
                 print("Invalid input. Press enter to roll the dice.")

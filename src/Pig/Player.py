@@ -50,10 +50,20 @@ class Player:
         """Update the score of the player."""
         self.score += score
    
-    def reset_score(self):
+    def reset_score(self, score):
         """Reset the score of the player."""
-        self.score = 0
+        self.score -= score
+
+    def count_the_round(self, roll):
+        """Count the round. If the player rolls a 1, the round is over. 
+        The points is not added to the total score."""
+        result_of_round = 0
+        list_of_total_rolls = []
+        list_of_total_rolls.append(roll)
+        for a in list_of_total_rolls:
+            result_of_round += a
+        return result_of_round
 
     def add_score(self, score):
         """Add the score of the player."""
-        self.score += score 
+        self.score += score
