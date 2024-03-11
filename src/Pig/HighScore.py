@@ -18,6 +18,7 @@ class HighScore:
     def load_score(self):
         """Load the HighScore."""
         print(">> Highscore <<\n")
+        # Load the high score from the file.
         with open(self.filename, "rb") as file:
             self.dict_of_highscores = pickle.load(file)
 

@@ -99,7 +99,7 @@ def main():
                 print("---------------------------------")
                 print("Invalid option. Please try again.")
                 print("---------------------------------")
-  
+ 
         except ValueError:
             print("------------------------------------------")
             print("Invalid input. Please enter a option 1-5.")
