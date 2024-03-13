@@ -19,7 +19,6 @@ def main():
         print("* 5. Quit               *")
         print("*************************")
         try:
-        
             option = int(input("Please enter an option: "))
 
             if option == 1:
@@ -108,8 +107,8 @@ def main():
 
             elif option == 4:
                 print(">> Rules <<\n")
-                theRules = Rules("Rules of Pig")
-                print(theRules.show_rules())
+                the_rules = Rules("Rules of Pig")
+                print(the_rules.show_rules())
                 back_to_menu = int(input("Enter to go back to the menu: "))
                 if back_to_menu == "":
                     print("Back to the menu.")

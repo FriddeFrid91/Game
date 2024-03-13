@@ -51,5 +51,10 @@ class Player:
 
     def deduct_score(self, rolled):
         """Deduct the score of the player."""
-        self.score -= rolled
+        if rolled == 0:
+            return self.score
+        if rolled == 1:
+            self.score = 0
+        elif rolled != 1:
+            self.score -= rolled
         

@@ -20,7 +20,7 @@ class TestRules(unittest.TestCase):
         """Test the Rules class."""
         self.assertIsInstance(self.rules, Rules)
 
-    def test_showRules(self):
+    def test_show_rules(self):
         """Test showRules method."""
         self.rules.show_rules()
         self.assertIsNotNone(self.rules.show_rules())

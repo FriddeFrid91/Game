@@ -73,22 +73,22 @@ class Game:
             if roll_the_dice == "":
                 roll = self.dice.roll_the_dice()  
                 tot = self.dice.show_the_dice(roll)
-                
+               
                 if roll != 1:
                     print(f"You rolled a {roll}.")
                     rolled = 0
                     rolling_total.append(roll)
                     for a in rolling_total:
                         rolled += a
-                    print(f"You got {rolled} points from this round.")
+                    print(f"You got {rolled} points from this round.\n")
 
-                if roll == 1:
-                    print("Sorry, you got a 1. Your turn is over.")
+                if roll == 1 or rolled == 0:
+                    print("Sorry, you got a 1. Your turn is over.\n")
                     current_player.deduct_score(rolled)
                     rolling_total.clear()
                     if current_player == player1:
                         current_player = player2
-                                 
+                             
                         print(f"{player1.get_name()} has {player1.get_score()} points.")
                         print(f"{player2.get_name()} has {player2.get_score()} points.\n")
                     else:

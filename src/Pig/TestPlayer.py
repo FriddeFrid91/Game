@@ -21,6 +21,15 @@ class TestPlayer(unittest.TestCase):
     def test_player_vs_player(self):
         """Test the Computer class."""
         self.assertIsInstance(self.player, Player)
+    
+    def test_player_name(self):
+        """Test the name of the player."""
+        self.assertEqual(self.player.get_name(), "Test")    
+
+    def deduct_score(self):
+        """Test the deduct_score method."""
+        self.player.deduct_score(1)
+        self.assertEqual(self.player.get_score(), 0)
 
 
 if __name__ == "__main__":
