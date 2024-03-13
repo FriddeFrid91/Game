@@ -29,14 +29,15 @@ class test_player(unittest.TestCase):
         self.assertEqual(self.player.get_name(), "Test")
         self.addCleanup(self.player.get_name)
         self.assertCountEqual(self.player.get_name(), "Test")
-
-    def test_player_vs_player(self):
-        """Test the Computer class."""
-        self.assertIsInstance(self.player, Player)
   
     def test_player_name(self):
         """Test the name of the player."""
-        self.assertEqual(self.player.get_name(), "Test")  
+        self.assertEqual(self.player.get_name(), "Test")
+
+    def add_score(self):
+        """Test the add_score method."""
+        self.player.add_score(1)
+        self.assertEqual(self.player.get_score(), 1)
 
     def deduct_score(self):
         """Test the deduct_score method."""
