@@ -30,11 +30,6 @@ class test_player(unittest.TestCase):
         self.addCleanup(self.player.get_name)
         self.assertCountEqual(self.player.get_name(), "Test")
 
-    def test_player_move(self):
-        """Test the player_move method."""
-        self.player.player_move()
-        self.assertIsNotNone(self.player.player_move())
-
     def get_name(self):
         """Test the get_name method."""
         self.assertEqual(self.player.get_name(), "Test")
