@@ -33,10 +33,6 @@ class Player:
     def get_name(self):
         """Get the name of the player."""
         return self.name
-   
-    def set_name(self, name):
-        """Set the name of the player."""
-        self.name = name
 
     def get_score(self):
         """Get the score of the player."""
@@ -49,10 +45,11 @@ class Player:
         """Set the score of the player."""
         self.score = score
 
-    def lost_score(self, score):
-        """Subtract the score of the player."""
-        self.score -= score
-
     def add_score(self, score):
         """Add the score of the player."""
         self.score += score
+
+    def deduct_score(self, rolled):
+        """Deduct the score of the player."""
+        self.score -= rolled
+        

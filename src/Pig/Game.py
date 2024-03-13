@@ -12,6 +12,7 @@ class Game:
         self.players = []
         self.player = Player(name="", score=0)
         self.dice = Dice(6)
+        self.points = 0
 
     def __str__(self):
         """Return the result of the game."""
@@ -57,55 +58,60 @@ class Game:
         """Start the game. Player vs Player."""
         current_player = player1
         rolling_total = []
-    
+            
         while True:
             print(">> Player vs Player <<\n")
-            print(">> A new round of Pig is starting! <<")
+            print("")
             print(f"{player1.get_name()} has {player1.get_score()} points.")
             print(f"{player2.get_name()} has {player2.get_score()} points.\n")
 
             print("-----------------------------------------")
             print(f"{current_player.get_name()} is playing.")
             print("-----------------------------------------\n")
-            rolled = 0
+
             roll_the_dice = input("Press enter to roll the dice. ")
             if roll_the_dice == "":
-                roll = self.dice.roll_the_dice()   
+                roll = self.dice.roll_the_dice()  
                 tot = self.dice.show_the_dice(roll)
-             
+                
                 if roll != 1:
                     print(f"You rolled a {roll}.")
+                    rolled = 0
                     rolling_total.append(roll)
                     for a in rolling_total:
                         rolled += a
-                    print(f"Total score: {rolled}")
-            
-                if tot == 0:       
-                    rolling_total.append(0)
-                    current_player.lost_score(current_player.get_score())
+                    print(f"You got {rolled} points from this round.")
+
+                if roll == 1:
+                    current_player.deduct_score(rolled)
+                    rolling_total.clear()
                     if current_player == player1:
-                        current_player = player2
-                        rolling_total.clear()
+                        current_player = player2  
+                                 
+                        print(f"{player1.get_name()} has {player1.get_score()} points.")
+                        print(f"{player2.get_name()} has {player2.get_score()} points.\n")
                     else:
-                        current_player = player1                 
+                        rolling_total.clear()
+                        current_player = player1                    
+                        print(f"{player1.get_name()} has {player1.get_score()} points.")
+                        print(f"{player2.get_name()} has {player2.get_score()} points.\n")
 
                 elif tot > 1:
                     current_player.add_score(tot)
                     if current_player.get_score() >= 50:
                         print(f"{current_player.get_name()} has won the game!")
-                        return current_player.get_name()
-                    
-                    print(f"{current_player.get_name()} has "
-                          + f"{current_player.get_score()} points.")              
+                        return current_player.get_name()            
 
                     hold = input("Do you want to hold? Yes or no: ")
                     if hold.lower() == "yes":
+                        rolling_total.clear()
                         if current_player == player1:
                             current_player = player2
-                            rolling_total.clear()
+                          
                         else:
-                            current_player = player1
                             rolling_total.clear()
+                            current_player = player1
+                        
                     elif hold.lower() == "no":
                         continue
                     else:
