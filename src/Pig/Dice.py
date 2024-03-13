@@ -30,9 +30,9 @@ class Dice:
             print("--------------------")
             print(f"You got a {result}!")
             print("--------------------")
-            return sum   
+            return sum  
         return sum
-
+    
     def get_dice(self):
         """Get the number of sides of the dice."""
         return self.numbers

@@ -83,10 +83,11 @@ class Game:
                     print(f"You got {rolled} points from this round.")
 
                 if roll == 1:
+                    print("Sorry, you got a 1. Your turn is over.")
                     current_player.deduct_score(rolled)
                     rolling_total.clear()
                     if current_player == player1:
-                        current_player = player2  
+                        current_player = player2
                                  
                         print(f"{player1.get_name()} has {player1.get_score()} points.")
                         print(f"{player2.get_name()} has {player2.get_score()} points.\n")
