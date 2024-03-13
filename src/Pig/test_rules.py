@@ -5,11 +5,11 @@ from Rules import Rules
 
 def main():
     """Run the test."""
-    TestRules().setUp()
+    test_rules().setUp()
     unittest.main()
 
 
-class TestRules(unittest.TestCase):
+class test_rules(unittest.TestCase):
     """Test the Rules class."""
 
     def setUp(self):

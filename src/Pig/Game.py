@@ -88,12 +88,12 @@ class Game:
                     rolling_total.clear()
                     if current_player == player1:
                         current_player = player2
-                             
+                           
                         print(f"{player1.get_name()} has {player1.get_score()} points.")
                         print(f"{player2.get_name()} has {player2.get_score()} points.\n")
                     else:
                         rolling_total.clear()
-                        current_player = player1                    
+                        current_player = player1                  
                         print(f"{player1.get_name()} has {player1.get_score()} points.")
                         print(f"{player2.get_name()} has {player2.get_score()} points.\n")
 
@@ -101,7 +101,7 @@ class Game:
                     current_player.add_score(tot)
                     if current_player.get_score() >= 50:
                         print(f"{current_player.get_name()} has won the game!")
-                        return current_player.get_name()            
+                        return current_player.get_name()           
 
                     hold = input("Do you want to hold? Yes or no: ")
                     if hold.lower() == "yes":

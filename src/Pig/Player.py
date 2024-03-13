@@ -26,7 +26,7 @@ class Player:
                 print(f"{Player.get_name} wins!")
                 break
 
-    def changeName(self, name):
+    def change_name(self, name):
         self.name = name
         return self.name
   
