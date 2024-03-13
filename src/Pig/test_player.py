@@ -29,6 +29,29 @@ class test_player(unittest.TestCase):
         self.assertEqual(self.player.get_name(), "Test")
         self.addCleanup(self.player.get_name)
         self.assertCountEqual(self.player.get_name(), "Test")
+
+    def test_player_move(self):
+        """Test the player_move method."""
+        self.player.player_move()
+        self.assertIsNotNone(self.player.player_move())
+
+    def get_name(self):
+        """Test the get_name method."""
+        self.assertEqual(self.player.get_name(), "Test")
+
+    def get_score(self):
+        """Test the get_score method."""
+        self.assertEqual(self.player.get_score(), 0)
+
+    def set_score(self):
+        """Test the set_score method."""
+        self.player.set_score(0)
+        self.assertEqual(self.player.get_score(), 0)
+
+    def change_name(self):
+        """Test the change_name method."""
+        self.player.change_name("Test")
+        self.assertEqual(self.player.get_name(), "Test")
   
     def test_player_name(self):
         """Test the name of the player."""
