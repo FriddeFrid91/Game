@@ -20,25 +20,25 @@ class Game:
         
     def player_vs_computer(self, player1, intelligence):
         """Start the game. Player vs Computer."""
-        self.players[currentPlayer] = 0
+        self.players[current_player] = 0
         self.players[intelligence] = 0
         self.scores = self.players
 
-        currentPlayer = player1
+        current_player = player1
         dice = Dice(6)
 
         while True:
-            roll_the_dice = input(f"Players {currentPlayer.name} turn "
+            roll_the_dice = input(f"Players {current_player.name} turn "
                                   + "- please enter 0 to roll the dice: ")
             if roll_the_dice == "0":
                 result = dice.roll_the_dice()
                 points_from_new_round = dice.show_the_dice(get.result())
 
                 if result != 1:
-                    self.players[currentPlayer] += points_from_new_round
+                    self.players[current_player] += points_from_new_round
                     print(f"Total points: {self.scores[currentPlayer]}")
                     if self.players[currentPlayer] >= 6:
-                        print(f"Congratulations! {currentPlayer.name} wins!")
+                        print(f"Congratulations! {current_player.name} wins!")
                         returnedDict = {key.name: value for key, value in self.players.items()}
                         for key, value in self.players.items():
                             print(f"{key.name} got {value} points.")
@@ -47,7 +47,7 @@ class Game:
                         roll_again = input("Do you want to roll again? Enter yes or no: ").lower()
                     print("")
                     if roll_again == "no":
-                        print(f"Your turn is over. You got {self.scores[currentPlayer]} points.")
+                        print(f"Your turn is over. You got {self.scores[current_player]} points.")
                         currentPlayer.score = self.players[currentPlayer]
                         currentPlayer = intelligence if currentPlayer == player1 else player1
                 else:
