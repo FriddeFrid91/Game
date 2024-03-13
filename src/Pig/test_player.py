@@ -27,6 +27,8 @@ class test_player(unittest.TestCase):
         self.assertIsInstance(self.player, Player)
         self.assertIsNotNone(self.player)
         self.assertEqual(self.player.get_name(), "Test")
+        self.addCleanup(self.player.get_name)
+        self.assertCountEqual(self.player.get_name(), "Test")
 
     def test_player_vs_player(self):
         """Test the Computer class."""
