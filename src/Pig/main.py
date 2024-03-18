@@ -17,8 +17,9 @@ def main():
         print("* 3. Highscore          *")
         print("* 4. Rules              *")
         print("* 5. Quit               *")
-        print("*************************")        
+        print("*************************")
         try:
+        
             option = int(input("Please enter an option: "))
 
             if option == 1:
@@ -36,36 +37,55 @@ def main():
             elif option == 2:
                 print(">> Player vs Player <<\n")
                 print(">> Player 1 <<")
-                name1 = input("Enter your name: ")
-                if name1 == "":
-                    print("You must enter a name.")               
-                else:
-                    change_name = input("Are you sure you want to use "
-                                        + "this name? Yes or no: ")
-                    if change_name.lower() == "yes":
-                        player1 = Player(name1, 0)
-                        print(f"Welcome {name1}!")
-                    elif change_name.lower() == "no":
-                        print("Please enter a new name.")
-                    else:
+                name1 = ""
+                while name1 == "":
+                    try:
+                        name1 = input("Enter your name: ")
+                        if name1 == "":
+                            print("You must enter a name.")
+                            continue
+                        change_name = input("Are you sure you want to use "
+                                            + "this name? Yes or no: ")
+                        if change_name.lower() == "yes":
+                            player1 = Player(name1, 0)
+                            print(f"Welcome {name1}!")
+                        elif change_name.lower() == "no":
+                            name1 = ""
+                            print("Please enter a new name.")
+                            continue
+                        elif change_name.lower() != "yes" or change_name.lower() != "no":
+                            print("Invalid input. Please enter a name: ")
+                            name1 = ""
+                            continue
+                    except ValueError:
                         print("Invalid input. Please enter 'yes' or 'no'.")
-                        break
+                        continue
 
                 print(">> Player 2 <<")
-                name2 = input("Enter your name: ")
-                if name2 == "":
-                    print("You must enter a name.")
-                else:
-                    change_name = input("Are you sure you want to use "
-                                        + "this name? Yes or no: ")
-                    if change_name.lower() == "yes":
-                        player2 = Player(name2, 0)
-                        print(f"Welcome {name2}!")
-                    elif change_name.lower() == "no":
-                        continue
-                    else:
+                name2 = ""
+                while name2 == "":
+                    try:
+                        name2 = input("Enter your name: ")
+                        if name2 == "":
+                            print("You must enter a name.")
+                            continue
+                        change_name = input("Are you sure you want to use "
+                                            + "this name? Yes or no: ")
+                        if change_name.lower() == "yes":
+                            player2 = Player(name2, 0)
+                            print(f"Welcome {name2}!")
+                        elif change_name.lower() == "no":
+                            name2 = ""
+                            print("Please enter a new name.")
+                            continue
+                        elif change_name.lower() != "yes" or change_name.lower() != "no":
+                            print("Invalid input. Please enter a name: ")
+                            name2 = ""
+                            continue
+                    except ValueError:
                         print("Invalid input. Please enter 'yes' or 'no'.")
                         break
+                
                 game = Game()
                 winner = game.player_vs_player(player1, player2)
 
@@ -74,9 +94,9 @@ def main():
                     highScore = HighScore()
                     highScore.load_score()
                     highScore.save_score(winner)
-
-                    backToTheMenu = int(input("Enter to go back to the menu:"))
-                    if backToTheMenu == "":
+                    winner = None
+                    back_to_menu = int(input("Enter to go back to the menu: "))
+                    if back_to_menu == "":
                         print("Back to the menu.")
                     else:
                         print("Invalid input.")
@@ -90,6 +110,11 @@ def main():
                 print(">> Rules <<\n")
                 theRules = Rules("Rules of Pig")
                 print(theRules.show_rules())
+                back_to_menu = int(input("Enter to go back to the menu: "))
+                if back_to_menu == "":
+                    print("Back to the menu.")
+                else:
+                    print("Invalid input.")
 
             elif option == 5:
                 print("Goodbye!")
@@ -99,11 +124,11 @@ def main():
                 print("---------------------------------")
                 print("Invalid option. Please try again.")
                 print("---------------------------------")
-  
+
         except ValueError:
             print("------------------------------------------")
             print("Invalid input. Please enter a option 1-5.")
-            print("------------------------------------------")       
+            print("------------------------------------------")
 
 
 if __name__ == "__main__":

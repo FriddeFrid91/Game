@@ -13,7 +13,7 @@ class Intelligence():
         """Create the intelligence with a score and a dice."""
         self.score = 0
         self.dice = Dice(6)
-        self.numbers = self.dice.getDice()
+        self.numbers = self.dice.get_dice()
 
     def intelligence_move(self):
         """Intelligence move."""

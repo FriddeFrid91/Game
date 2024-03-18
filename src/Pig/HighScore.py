@@ -1,6 +1,7 @@
 
 """The HighScore class. Contains the high score logic for the game of Pig."""
 import pickle
+from Player import Player
 
 
 class HighScore:
@@ -9,6 +10,7 @@ class HighScore:
     def __init__(self):
         """Create the high score."""
         self.dict_of_highscores = {}
+        self.player = Player(name="", score=0)
         self.filename = "highscore.txt"
 
     def __str__(self):
@@ -18,6 +20,7 @@ class HighScore:
     def load_score(self):
         """Load the HighScore."""
         print(">> Highscore <<\n")
+        # Load the high score from the file.
         with open(self.filename, "rb") as file:
             self.dict_of_highscores = pickle.load(file)
 
@@ -27,7 +30,7 @@ class HighScore:
                                                reverse=True)}
         # Prints the sorted dictionary by key and value.
         for key, value in sorted_dict.items():
-            print(f"{key} : {value}")
+            print(f"{key:22} : {value:<9}")
 
     def save_score(self, winner):
         """Save the high score."""
@@ -43,3 +46,6 @@ class HighScore:
         # Save the dictionary to the file.
         with open(self.filename, "wb") as file:
             pickle.dump(self.dict_of_highscores, file)
+        old_dict = {}
+        old_dict = self.dict_of_highscores
+        return winner is None and old_dict

@@ -40,20 +40,19 @@ class Player:
 
     def get_score(self):
         """Get the score of the player."""
-        return self.score
+        if self.score < 0:
+            return 0
+        else:
+            return self.score
 
     def set_score(self, score):
         """Set the score of the player."""
         self.score = score
 
-    def update_score(self, score):
-        """Update the score of the player."""
-        self.score += score
-   
-    def reset_score(self):
-        """Reset the score of the player."""
-        self.score = 0
+    def lost_score(self, score):
+        """Subtract the score of the player."""
+        self.score -= score
 
     def add_score(self, score):
         """Add the score of the player."""
-        self.score += score 
+        self.score += score
