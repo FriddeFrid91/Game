@@ -19,7 +19,7 @@ class Intelligence():
         """Intelligence move."""
         roundScore = 0
         while roundScore < 100:
-            roll = Dice.roll_the_dice(self)
+            roll = Dice.rollTheDice(self)
             print(f"Intelligence rolled a {roll}. Total score: {roundScore + roll}")
             roundScore += roll
           
